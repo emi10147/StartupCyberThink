@@ -122,17 +122,6 @@ export function HeroSection() {
               CyberThink
             </span>
           </h1>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
-          >
-            Create jaw-dropping motion and interaction in minutes — no code.
-            <br className="hidden md:block" />
-            <span className="text-gray-400">Embed with a few clicks.</span>
-          </motion.p>
         </motion.div>
         
         {/* Enhanced CTA Buttons */}
