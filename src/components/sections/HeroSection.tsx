@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { CyberOrb } from '@/components/webgl/CyberOrb'
 
 export function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -73,18 +72,6 @@ export function HeroSection() {
       {/* Modern Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
-          {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-2xl font-bold"
-          >
-            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              🛡️ Unicorn
-            </span>
-          </motion.div>
-          
           {/* Navigation Items */}
           <div className="flex items-center space-x-8">
             <motion.div
@@ -123,17 +110,6 @@ export function HeroSection() {
       {/* Main Hero Content */}
       <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
         
-        {/* Enhanced 3D Orb */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5, rotateX: -30 }}
-          animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-          transition={{ duration: 1.2, delay: 0.3, ease: [0.6, -0.05, 0.01, 0.99] }}
-          className="relative w-96 h-96 mx-auto mb-8 mt-32"
-        >
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-900/20 via-cyan-500/20 to-sky-400/20 blur-xl animate-pulse" />
-          <CyberOrb />
-        </motion.div>
-        
         {/* Main Headline */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -142,8 +118,8 @@ export function HeroSection() {
           className="space-y-6 mb-12"
         >
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">
-            <span className="block bg-gradient-to-r from-blue-300 via-cyan-400 to-sky-400 bg-clip-text text-transparent leading-none">
-              Cyber Think
+            <span className="block bg-gradient-to-r from-blue-300 via-cyan-400 to-sky-400 bg-clip-text text-transparent leading-tight">
+              CyberThink
             </span>
           </h1>
           
