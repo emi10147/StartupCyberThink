@@ -135,7 +135,7 @@ export function HeroSection() {
           </motion.p>
         </motion.div>
         
-        {/* Enhanced CTA Button */}
+        {/* Enhanced CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
