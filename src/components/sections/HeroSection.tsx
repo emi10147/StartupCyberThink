@@ -129,7 +129,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.9 }}
             className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
-            Create jaw-dropping motion and interaction in minutes — no code.
+            Create jaw-dropping motion and interaction in minutes — no code. [UPDATED]
             <br className="hidden md:block" />
             <span className="text-gray-400">Embed with a few clicks.</span>
           </motion.p>
