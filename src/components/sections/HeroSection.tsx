@@ -85,56 +85,58 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-black/50" />
       </div>
       
-      {/* Enhanced Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4 backdrop-blur-md bg-black/20 border-b border-white/10">
+      {/* Enhanced Navigation Bar - Mobile Optimized */}
+      <nav className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 py-3 md:py-4 backdrop-blur-md bg-black/20 border-b border-white/10">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           {/* Navigation Items */}
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-4 md:space-x-8">
             <motion.div
-              initial={{ opacity: 0, y: -30, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ 
-                duration: 1.2, 
+                duration: 1.0, 
                 delay: 0.1,
                 ease: [0.25, 0.46, 0.45, 0.94]
               }}
-              className="hidden md:flex items-center space-x-8"
+              className="hidden md:flex items-center space-x-6 md:space-x-8"
             >
               <motion.a 
                 href="#" 
-                className="text-gray-300 hover:text-white transition-all duration-500 font-space-grotesk font-medium tracking-wide relative group"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+                className="text-gray-300 hover:text-white transition-all duration-300 font-space-grotesk font-medium tracking-wide relative group py-2 px-1"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
               >
                 Resources
-                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </motion.a>
               <motion.a 
                 href="#" 
-                className="text-gray-300 hover:text-white transition-all duration-500 font-space-grotesk font-medium tracking-wide relative group"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+                className="text-gray-300 hover:text-white transition-all duration-300 font-space-grotesk font-medium tracking-wide relative group py-2 px-1"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
               >
                 Login
-                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </motion.a>
             </motion.div>
             
             <motion.div
-              initial={{ opacity: 0, y: -30, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ 
-                duration: 1.2, 
-                delay: 0.3,
+                duration: 1.0, 
+                delay: 0.2,
                 ease: [0.25, 0.46, 0.45, 0.94]
               }}
             >
               <motion.div
-                whileHover={{ scale: 1.08, y: -2 }}
+                whileHover={{ scale: 1.05, y: -1 }}
                 whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                <Button className="bg-gradient-to-r from-blue-600 to-cyan-700 hover:from-blue-500 hover:to-cyan-600 text-white px-6 py-2 rounded-lg font-space-grotesk font-semibold tracking-wide transition-all duration-500 shadow-lg hover:shadow-cyan-500/30 border border-cyan-500/20 hover:border-cyan-400/40">
+                <Button className="bg-gradient-to-r from-blue-600 to-cyan-700 hover:from-blue-500 hover:to-cyan-600 text-white px-4 md:px-6 py-2 text-sm md:text-base rounded-lg font-space-grotesk font-semibold tracking-wide transition-all duration-300 shadow-lg hover:shadow-cyan-500/30 border border-cyan-500/20 hover:border-cyan-400/40 min-h-[44px]">
                   Sign up
                 </Button>
               </motion.div>
@@ -143,17 +145,45 @@ export function HeroSection() {
         </div>
       </nav>
       
-      {/* Main Hero Content - FIXED LAYOUT */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
+      {/* Main Hero Content - MOBILE OPTIMIZED INFRASTRUCTURE */}
+      <div 
+        className="relative z-10 text-center max-w-6xl mx-auto px-4 md:px-6"
+        style={{
+          // Mobile performance optimizations
+          WebkitOverflowScrolling: 'touch',
+          WebkitTapHighlightColor: 'transparent',
+          touchAction: 'manipulation'
+        }}
+      >
         
-        {/* LOGO CONTAINER - ABSOLUTELY FIXED POSITION */}
-        <div className="fixed-logo-container" style={{ minHeight: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '3rem', paddingTop: '20px' }}>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-space-grotesk font-bold tracking-tight">
+        {/* LOGO CONTAINER - MOBILE OPTIMIZED */}
+        <div 
+          className="fixed-logo-container" 
+          style={{ 
+            minHeight: '200px', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            marginBottom: '3rem', 
+            paddingTop: '20px',
+            // Mobile performance optimizations
+            willChange: 'auto',
+            backfaceVisibility: 'hidden'
+          }}
+        >
+          <h1 
+            className="text-4xl md:text-7xl lg:text-8xl font-space-grotesk font-bold tracking-tight"
+            style={{
+              // Ensure smooth rendering on mobile
+              WebkitFontSmoothing: 'antialiased',
+              MozOsxFontSmoothing: 'grayscale'
+            }}
+          >
             <span className="block bg-gradient-to-r from-blue-300 via-cyan-400 to-sky-400 bg-clip-text text-transparent leading-tight">
               <TypewriterText 
                 text="CyberThink" 
-                delay={300}
-                speed={80}
+                delay={200}
+                speed={60}
                 showCursor={true}
                 cursorClassName="bg-cyan-400"
                 onComplete={handleTypewriterComplete}
@@ -164,46 +194,52 @@ export function HeroSection() {
 
         {/* CONTENT CONTAINER - SEPARATE FROM LOGO */}
         <div className="content-sections" style={{ minHeight: '400px' }}>
-          {/* Problem Section - Optimized Transitions */}
+          {/* Problem Section - Mobile Optimized */}
           <AnimatePresence mode="wait">
               {showProblem && (
               <motion.div
                 key="problem-section"
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20, scale: 0.98 }}
+                exit={{ opacity: 0, y: -10 }}
                 transition={{ 
-                  duration: 1.8,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                  opacity: { duration: 1.6 },
-                  y: { duration: 1.8 },
-                  scale: { duration: 1.4 }
+                  duration: 1.2,
+                  ease: [0.25, 0.46, 0.45, 0.94]
                 }}
-                className="space-y-8 mb-12"
+                className="space-y-6 md:space-y-8 mb-8 md:mb-12"
+                style={{
+                  // Mobile performance optimizations
+                  willChange: 'opacity, transform',
+                  backfaceVisibility: 'hidden'
+                }}
               >
-                {/* Problem Title - Enhanced Animation */}
+                {/* Problem Title - Mobile Enhanced */}
                 <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   transition={{ 
-                    duration: 1.2, 
-                    delay: 0.2, 
+                    duration: 1.0, 
+                    delay: 0.1, 
                     ease: [0.25, 0.46, 0.45, 0.94]
                   }}
-                  className="text-2xl md:text-3xl font-space-grotesk font-semibold text-center mb-8"
+                  className="text-xl md:text-2xl lg:text-3xl font-space-grotesk font-semibold text-center mb-6 md:mb-8"
                 >
                   <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
                     The Problem
                   </span>
                 </motion.h2>                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   transition={{ 
-                    duration: 1.4, 
-                    delay: 0.6, 
+                    duration: 1.0, 
+                    delay: 0.3, 
                     ease: [0.25, 0.46, 0.45, 0.94] 
                   }}
-                  className="text-lg md:text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed font-space-grotesk font-light tracking-wide text-center space-y-6"
+                  className="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed font-space-grotesk font-light tracking-wide text-center space-y-4 md:space-y-6"
+                  style={{
+                    // Improved mobile text rendering
+                    WebkitFontSmoothing: 'antialiased'
+                  }}
                 >
                 <p>
                   Organizations are increasingly investing in{' '}
@@ -237,26 +273,29 @@ export function HeroSection() {
             {showSolution && (
               <motion.div
                 key="solution"
-                initial={{ opacity: 0, y: 35 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ 
-                  duration: 1.6, 
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                  opacity: { duration: 1.4 },
-                  y: { duration: 1.6 }
+                  duration: 1.0, 
+                  ease: [0.25, 0.46, 0.45, 0.94]
                 }}
-                className="space-y-8 mb-12"
+                className="space-y-6 md:space-y-8 mb-8 md:mb-12"
+                style={{
+                  // Mobile performance optimizations
+                  willChange: 'opacity, transform',
+                  backfaceVisibility: 'hidden'
+                }}
               >
                 {/* Solution Title */}
                 <motion.h2
-                  initial={{ opacity: 0, y: 25 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   transition={{ 
-                    duration: 1.2, 
-                    delay: 0.3, 
+                    duration: 0.8, 
+                    delay: 0.2, 
                     ease: [0.25, 0.46, 0.45, 0.94]
                   }}
-                  className="text-2xl md:text-3xl font-space-grotesk font-semibold text-center mb-8"
+                  className="text-xl md:text-2xl lg:text-3xl font-space-grotesk font-semibold text-center mb-6 md:mb-8"
                 >
                   <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent">
                     Our Solution
@@ -264,14 +303,18 @@ export function HeroSection() {
                 </motion.h2>
 
                 <motion.p
-                  initial={{ opacity: 0, y: 25 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   transition={{ 
-                    duration: 1.4, 
-                    delay: 0.6, 
+                    duration: 0.8, 
+                    delay: 0.4, 
                     ease: [0.25, 0.46, 0.45, 0.94] 
                   }}
-                  className="text-lg md:text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed font-space-grotesk font-light tracking-wide text-center"
+                  className="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed font-space-grotesk font-light tracking-wide text-center"
+                  style={{
+                    // Improved mobile text rendering
+                    WebkitFontSmoothing: 'antialiased'
+                  }}
                 >
                 An integrated model that combines{' '}
                 <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent font-semibold">
@@ -292,50 +335,56 @@ export function HeroSection() {
             {showSolution && (
               <motion.div
                 key="buttons"
-                initial={{ opacity: 0, y: 35 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ 
-                  duration: 1.4, 
-                  delay: 1.2, 
+                  duration: 0.8, 
+                  delay: 0.6, 
                   ease: [0.25, 0.46, 0.45, 0.94]
                 }}
-                className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12"
+                className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mt-8 md:mt-12 px-4"
               >
-                {/* Primary CTA Button - Get Started */}
+                {/* Primary CTA Button - Mobile Optimized */}
                 <motion.div
-                  whileHover={{ scale: 1.08, y: -3 }}
+                  whileHover={{ scale: 1.03, y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
                   <Button 
-                    className="group relative px-8 py-4 text-lg font-space-grotesk font-semibold tracking-wide text-white rounded-xl overflow-hidden transition-all duration-500 shadow-2xl hover:shadow-blue-500/40 border border-blue-500/30 hover:border-blue-400/60"
+                    className="group relative px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-space-grotesk font-semibold tracking-wide text-white rounded-xl overflow-hidden transition-all duration-300 shadow-2xl hover:shadow-blue-500/40 border border-blue-500/30 hover:border-blue-400/60 w-full sm:w-auto min-h-[48px] md:min-h-[56px]"
                     style={{
                       background: 'linear-gradient(135deg, #0047AB 0%, #007FFF 50%, #00BFFF 100%)',
+                      // Mobile touch optimization
+                      touchAction: 'manipulation'
                     }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute inset-0 bg-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />
-                    <span className="relative z-10 flex items-center gap-3">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse" />
+                    <span className="relative z-10 flex items-center justify-center gap-3">
                       Get Started
-                      <svg className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                       </svg>
                     </span>
                   </Button>
                 </motion.div>
                 
-                {/* Secondary CTA Button - Learn More */}
+                {/* Secondary CTA Button - Mobile Optimized */}
                 <motion.div
-                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileHover={{ scale: 1.02, y: -1 }}
                   whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
                   <button
-                    className="group px-8 py-4 text-lg font-space-grotesk font-medium tracking-wide text-cyan-300 border-2 border-cyan-500/40 hover:border-cyan-400/80 rounded-xl transition-all duration-500 hover:bg-cyan-500/10 hover:shadow-lg hover:shadow-cyan-500/25 backdrop-blur-sm"
+                    className="group px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-space-grotesk font-medium tracking-wide text-cyan-300 border-2 border-cyan-500/40 hover:border-cyan-400/80 rounded-xl transition-all duration-300 hover:bg-cyan-500/10 hover:shadow-lg hover:shadow-cyan-500/25 backdrop-blur-sm w-full sm:w-auto min-h-[48px] md:min-h-[56px]"
+                    style={{
+                      // Mobile touch optimization
+                      touchAction: 'manipulation'
+                    }}
                   >
-                    <span className="flex items-center gap-3">
+                    <span className="flex items-center justify-center gap-3">
                       Learn More
-                      <svg className="w-5 h-5 transition-transform duration-500 group-hover:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                       </svg>
                     </span>
@@ -348,8 +397,15 @@ export function HeroSection() {
         {/* End Content Container */}
       </div>
       
-      {/* Mobile Optimization Overlay */}
-      <div className="md:hidden absolute inset-0 bg-black/20 pointer-events-none" />
+      {/* Mobile Optimization Overlay - Enhanced */}
+      <div 
+        className="md:hidden absolute inset-0 bg-black/10 pointer-events-none"
+        style={{
+          // Improve mobile performance
+          willChange: 'auto',
+          backfaceVisibility: 'hidden'
+        }}
+      />
     </section>
   )
 }
