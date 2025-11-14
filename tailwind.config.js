@@ -70,6 +70,12 @@ module.exports = {
           cyan: "#00FFFF",
         },
       },
+      fontFamily: {
+        'space-grotesk': ['var(--font-space-grotesk)', 'sans-serif'],
+        'jetbrains': ['var(--font-jetbrains-mono)', 'monospace'],
+        'sans': ['var(--font-space-grotesk)', 'Inter', 'sans-serif'],
+        'mono': ['var(--font-jetbrains-mono)', 'JetBrains Mono', 'monospace'],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

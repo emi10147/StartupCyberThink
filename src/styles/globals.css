@@ -38,6 +38,11 @@
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    /* Enhanced font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "liga", "kern";
   }
   
   /* Glowing border effect around the viewport */
