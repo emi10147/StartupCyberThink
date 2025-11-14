@@ -85,59 +85,120 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-black/50" />
       </div>
       
-      {/* Enhanced Navigation Bar - Mobile Optimized */}
-      <nav className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 py-3 md:py-4 backdrop-blur-md bg-black/20 border-b border-white/10">
+      {/* Premium Navigation Bar - Enhanced Smooth Transitions */}
+      <nav 
+        className="fixed top-0 left-0 right-0 z-[100] px-4 md:px-6 py-3 md:py-4"
+        style={{
+          // Enhanced backdrop for better separation
+          backdropFilter: 'blur(20px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+          backgroundColor: 'rgba(0, 0, 0, 0.25)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+          // Ensure smooth performance
+          willChange: 'backdrop-filter',
+          transform: 'translateZ(0)'
+        }}
+      >
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           {/* Navigation Items */}
           <div className="flex items-center space-x-4 md:space-x-8">
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
-                duration: 1.0, 
+                duration: 0.8, 
                 delay: 0.1,
-                ease: [0.25, 0.46, 0.45, 0.94]
+                ease: [0.23, 1, 0.32, 1]
               }}
               className="hidden md:flex items-center space-x-6 md:space-x-8"
             >
               <motion.a 
                 href="#" 
-                className="text-gray-300 hover:text-white transition-all duration-300 font-space-grotesk font-medium tracking-wide relative group py-2 px-1"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
+                className="text-gray-300 hover:text-white transition-all duration-200 font-space-grotesk font-medium tracking-wide relative group py-2 px-3 rounded-md"
+                whileHover={{ 
+                  scale: 1.02,
+                  transition: { duration: 0.15, ease: [0.23, 1, 0.32, 1] }
+                }}
+                whileTap={{ 
+                  scale: 0.98,
+                  transition: { duration: 0.1, ease: [0.23, 1, 0.32, 1] }
+                }}
               >
                 Resources
-                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                <motion.span 
+                  className="absolute inset-x-3 bottom-1 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full"
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  whileHover={{ 
+                    scaleX: 1, 
+                    opacity: 1,
+                    transition: { duration: 0.2, ease: [0.23, 1, 0.32, 1] }
+                  }}
+                  style={{ originX: 0 }}
+                />
               </motion.a>
               <motion.a 
                 href="#" 
-                className="text-gray-300 hover:text-white transition-all duration-300 font-space-grotesk font-medium tracking-wide relative group py-2 px-1"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
+                className="text-gray-300 hover:text-white transition-all duration-200 font-space-grotesk font-medium tracking-wide relative group py-2 px-3 rounded-md"
+                whileHover={{ 
+                  scale: 1.02,
+                  transition: { duration: 0.15, ease: [0.23, 1, 0.32, 1] }
+                }}
+                whileTap={{ 
+                  scale: 0.98,
+                  transition: { duration: 0.1, ease: [0.23, 1, 0.32, 1] }
+                }}
               >
                 Login
-                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                <motion.span 
+                  className="absolute inset-x-3 bottom-1 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full"
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  whileHover={{ 
+                    scaleX: 1, 
+                    opacity: 1,
+                    transition: { duration: 0.2, ease: [0.23, 1, 0.32, 1] }
+                  }}
+                  style={{ originX: 0 }}
+                />
               </motion.a>
             </motion.div>
             
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
-                duration: 1.0, 
+                duration: 0.8, 
                 delay: 0.2,
-                ease: [0.25, 0.46, 0.45, 0.94]
+                ease: [0.23, 1, 0.32, 1]
               }}
             >
               <motion.div
-                whileHover={{ scale: 1.05, y: -1 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+                whileHover={{ 
+                  scale: 1.03,
+                  y: -1,
+                  transition: { duration: 0.15, ease: [0.23, 1, 0.32, 1] }
+                }}
+                whileTap={{ 
+                  scale: 0.98,
+                  transition: { duration: 0.1, ease: [0.23, 1, 0.32, 1] }
+                }}
               >
-                <Button className="bg-gradient-to-r from-blue-600 to-cyan-700 hover:from-blue-500 hover:to-cyan-600 text-white px-4 md:px-6 py-2 text-sm md:text-base rounded-lg font-space-grotesk font-semibold tracking-wide transition-all duration-300 shadow-lg hover:shadow-cyan-500/30 border border-cyan-500/20 hover:border-cyan-400/40 min-h-[44px]">
-                  Sign up
+                <Button 
+                  className="bg-gradient-to-r from-blue-600 to-cyan-700 hover:from-blue-500 hover:to-cyan-600 text-white px-4 md:px-6 py-2 text-sm md:text-base rounded-lg font-space-grotesk font-semibold tracking-wide transition-all duration-200 min-h-[44px] relative overflow-hidden"
+                  style={{
+                    // Enhanced button styling
+                    boxShadow: '0 4px 15px rgba(59, 130, 246, 0.2)',
+                    border: '1px solid rgba(56, 189, 248, 0.3)'
+                  }}
+                >
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500"
+                    initial={{ opacity: 0 }}
+                    whileHover={{ 
+                      opacity: 1,
+                      transition: { duration: 0.2 }
+                    }}
+                  />
+                  <span className="relative z-10">Sign up</span>
                 </Button>
               </motion.div>
             </motion.div>
@@ -145,38 +206,50 @@ export function HeroSection() {
         </div>
       </nav>
       
-      {/* Main Hero Content - MOBILE OPTIMIZED INFRASTRUCTURE */}
+      {/* Main Hero Content - ENHANCED INFRASTRUCTURE */}
       <div 
         className="relative z-10 text-center max-w-6xl mx-auto px-4 md:px-6"
         style={{
+          // Ensure content doesn't overlap with navigation
+          paddingTop: '80px',
+          minHeight: '100vh',
           // Mobile performance optimizations
           WebkitOverflowScrolling: 'touch',
           WebkitTapHighlightColor: 'transparent',
-          touchAction: 'manipulation'
+          touchAction: 'manipulation',
+          // Better rendering
+          willChange: 'auto',
+          transform: 'translateZ(0)'
         }}
       >
         
-        {/* LOGO CONTAINER - MOBILE OPTIMIZED */}
+        {/* LOGO CONTAINER - ENHANCED POSITIONING */}
         <div 
           className="fixed-logo-container" 
           style={{ 
-            minHeight: '200px', 
+            minHeight: '220px', 
             display: 'flex', 
             alignItems: 'center', 
             justifyContent: 'center', 
-            marginBottom: '3rem', 
-            paddingTop: '20px',
-            // Mobile performance optimizations
+            marginBottom: '4rem',
+            paddingTop: '40px',
+            paddingBottom: '20px',
+            // Enhanced performance optimizations
             willChange: 'auto',
-            backfaceVisibility: 'hidden'
+            backfaceVisibility: 'hidden',
+            transform: 'translateZ(0)',
+            // Ensure proper separation
+            position: 'relative',
+            zIndex: '20'
           }}
         >
           <h1 
-            className="text-4xl md:text-7xl lg:text-8xl font-space-grotesk font-bold tracking-tight"
+            className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-space-grotesk font-bold tracking-tight"
             style={{
-              // Ensure smooth rendering on mobile
+              // Ensure smooth rendering on all devices
               WebkitFontSmoothing: 'antialiased',
-              MozOsxFontSmoothing: 'grayscale'
+              MozOsxFontSmoothing: 'grayscale',
+              textRendering: 'optimizeLegibility'
             }}
           >
             <span className="block bg-gradient-to-r from-blue-300 via-cyan-400 to-sky-400 bg-clip-text text-transparent leading-tight">
@@ -192,35 +265,45 @@ export function HeroSection() {
           </h1>
         </div>
 
-        {/* CONTENT CONTAINER - SEPARATE FROM LOGO */}
-        <div className="content-sections" style={{ minHeight: '400px' }}>
-          {/* Problem Section - Mobile Optimized */}
+        {/* CONTENT CONTAINER - ENHANCED SEPARATION */}
+        <div 
+          className="content-sections" 
+          style={{ 
+            minHeight: '500px',
+            position: 'relative',
+            zIndex: '10',
+            // Better spacing and separation
+            paddingTop: '2rem'
+          }}
+        >
+          {/* Problem Section - Ultra Smooth Transitions */}
           <AnimatePresence mode="wait">
               {showProblem && (
               <motion.div
                 key="problem-section"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
+                exit={{ opacity: 0, y: -8 }}
                 transition={{ 
-                  duration: 1.2,
-                  ease: [0.25, 0.46, 0.45, 0.94]
+                  duration: 0.8,
+                  ease: [0.23, 1, 0.32, 1]
                 }}
                 className="space-y-6 md:space-y-8 mb-8 md:mb-12"
                 style={{
-                  // Mobile performance optimizations
+                  // Performance optimizations
                   willChange: 'opacity, transform',
-                  backfaceVisibility: 'hidden'
+                  backfaceVisibility: 'hidden',
+                  transform: 'translateZ(0)'
                 }}
               >
-                {/* Problem Title - Mobile Enhanced */}
+                {/* Problem Title - Consistent Timing */}
                 <motion.h2
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ 
-                    duration: 1.0, 
+                    duration: 0.6, 
                     delay: 0.1, 
-                    ease: [0.25, 0.46, 0.45, 0.94]
+                    ease: [0.23, 1, 0.32, 1]
                   }}
                   className="text-xl md:text-2xl lg:text-3xl font-space-grotesk font-semibold text-center mb-6 md:mb-8"
                 >
@@ -231,14 +314,15 @@ export function HeroSection() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ 
-                    duration: 1.0, 
-                    delay: 0.3, 
-                    ease: [0.25, 0.46, 0.45, 0.94] 
+                    duration: 0.6, 
+                    delay: 0.2, 
+                    ease: [0.23, 1, 0.32, 1] 
                   }}
                   className="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed font-space-grotesk font-light tracking-wide text-center space-y-4 md:space-y-6"
                   style={{
-                    // Improved mobile text rendering
-                    WebkitFontSmoothing: 'antialiased'
+                    // Enhanced text rendering
+                    WebkitFontSmoothing: 'antialiased',
+                    textRendering: 'optimizeLegibility'
                   }}
                 >
                 <p>
@@ -273,27 +357,28 @@ export function HeroSection() {
             {showSolution && (
               <motion.div
                 key="solution"
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ 
-                  duration: 1.0, 
-                  ease: [0.25, 0.46, 0.45, 0.94]
+                  duration: 0.7, 
+                  ease: [0.23, 1, 0.32, 1]
                 }}
                 className="space-y-6 md:space-y-8 mb-8 md:mb-12"
                 style={{
-                  // Mobile performance optimizations
+                  // Performance optimizations
                   willChange: 'opacity, transform',
-                  backfaceVisibility: 'hidden'
+                  backfaceVisibility: 'hidden',
+                  transform: 'translateZ(0)'
                 }}
               >
-                {/* Solution Title */}
+                {/* Solution Title - Consistent Timing */}
                 <motion.h2
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ 
-                    duration: 0.8, 
-                    delay: 0.2, 
-                    ease: [0.25, 0.46, 0.45, 0.94]
+                    duration: 0.5, 
+                    delay: 0.1, 
+                    ease: [0.23, 1, 0.32, 1]
                   }}
                   className="text-xl md:text-2xl lg:text-3xl font-space-grotesk font-semibold text-center mb-6 md:mb-8"
                 >
@@ -306,14 +391,15 @@ export function HeroSection() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ 
-                    duration: 0.8, 
-                    delay: 0.4, 
-                    ease: [0.25, 0.46, 0.45, 0.94] 
+                    duration: 0.5, 
+                    delay: 0.2, 
+                    ease: [0.23, 1, 0.32, 1] 
                   }}
                   className="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed font-space-grotesk font-light tracking-wide text-center"
                   style={{
-                    // Improved mobile text rendering
-                    WebkitFontSmoothing: 'antialiased'
+                    // Enhanced text rendering
+                    WebkitFontSmoothing: 'antialiased',
+                    textRendering: 'optimizeLegibility'
                   }}
                 >
                 An integrated model that combines{' '}
@@ -335,58 +421,96 @@ export function HeroSection() {
             {showSolution && (
               <motion.div
                 key="buttons"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ 
-                  duration: 0.8, 
-                  delay: 0.6, 
-                  ease: [0.25, 0.46, 0.45, 0.94]
+                  duration: 0.6, 
+                  delay: 0.3, 
+                  ease: [0.23, 1, 0.32, 1]
                 }}
                 className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mt-8 md:mt-12 px-4"
               >
-                {/* Primary CTA Button - Mobile Optimized */}
+                {/* Primary CTA Button - Enhanced Responsiveness */}
                 <motion.div
-                  whileHover={{ scale: 1.03, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  whileHover={{ 
+                    scale: 1.02, 
+                    y: -1,
+                    transition: { duration: 0.15, ease: [0.23, 1, 0.32, 1] }
+                  }}
+                  whileTap={{ 
+                    scale: 0.99,
+                    transition: { duration: 0.1, ease: [0.23, 1, 0.32, 1] }
+                  }}
                 >
                   <Button 
-                    className="group relative px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-space-grotesk font-semibold tracking-wide text-white rounded-xl overflow-hidden transition-all duration-300 shadow-2xl hover:shadow-blue-500/40 border border-blue-500/30 hover:border-blue-400/60 w-full sm:w-auto min-h-[48px] md:min-h-[56px]"
+                    className="group relative px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-space-grotesk font-semibold tracking-wide text-white rounded-xl overflow-hidden transition-all duration-200 shadow-xl hover:shadow-blue-500/30 border border-blue-500/30 hover:border-blue-400/50 w-full sm:w-auto min-h-[50px] md:min-h-[56px]"
                     style={{
                       background: 'linear-gradient(135deg, #0047AB 0%, #007FFF 50%, #00BFFF 100%)',
-                      // Mobile touch optimization
-                      touchAction: 'manipulation'
+                      // Enhanced mobile optimization
+                      touchAction: 'manipulation',
+                      WebkitTapHighlightColor: 'transparent'
                     }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute inset-0 bg-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse" />
+                    <motion.div 
+                      className="absolute inset-0 bg-gradient-to-r from-blue-500 via-cyan-500 to-sky-500"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ 
+                        opacity: 1,
+                        transition: { duration: 0.2 }
+                      }}
+                    />
                     <span className="relative z-10 flex items-center justify-center gap-3">
                       Get Started
-                      <svg className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <motion.svg 
+                        className="w-4 h-4 md:w-5 md:h-5" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                        whileHover={{
+                          x: 2,
+                          transition: { duration: 0.2, ease: [0.23, 1, 0.32, 1] }
+                        }}
+                      >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                      </svg>
+                      </motion.svg>
                     </span>
                   </Button>
                 </motion.div>
                 
-                {/* Secondary CTA Button - Mobile Optimized */}
+                {/* Secondary CTA Button - Enhanced Responsiveness */}
                 <motion.div
-                  whileHover={{ scale: 1.02, y: -1 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  whileHover={{ 
+                    scale: 1.01, 
+                    y: -1,
+                    transition: { duration: 0.15, ease: [0.23, 1, 0.32, 1] }
+                  }}
+                  whileTap={{ 
+                    scale: 0.99,
+                    transition: { duration: 0.1, ease: [0.23, 1, 0.32, 1] }
+                  }}
                 >
                   <button
-                    className="group px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-space-grotesk font-medium tracking-wide text-cyan-300 border-2 border-cyan-500/40 hover:border-cyan-400/80 rounded-xl transition-all duration-300 hover:bg-cyan-500/10 hover:shadow-lg hover:shadow-cyan-500/25 backdrop-blur-sm w-full sm:w-auto min-h-[48px] md:min-h-[56px]"
+                    className="group px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-space-grotesk font-medium tracking-wide text-cyan-300 border-2 border-cyan-500/40 hover:border-cyan-400/70 rounded-xl transition-all duration-200 hover:bg-cyan-500/8 hover:shadow-lg hover:shadow-cyan-500/20 backdrop-blur-sm w-full sm:w-auto min-h-[50px] md:min-h-[56px]"
                     style={{
-                      // Mobile touch optimization
-                      touchAction: 'manipulation'
+                      // Enhanced mobile optimization
+                      touchAction: 'manipulation',
+                      WebkitTapHighlightColor: 'transparent'
                     }}
                   >
                     <span className="flex items-center justify-center gap-3">
                       Learn More
-                      <svg className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <motion.svg 
+                        className="w-4 h-4 md:w-5 md:h-5" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                        whileHover={{
+                          rotate: 45,
+                          transition: { duration: 0.2, ease: [0.23, 1, 0.32, 1] }
+                        }}
+                      >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                      </svg>
+                      </motion.svg>
                     </span>
                   </button>
                 </motion.div>
