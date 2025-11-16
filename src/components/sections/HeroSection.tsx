@@ -2,10 +2,12 @@
 
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { TypewriterText } from '@/components/ui/TypewriterText'
 
 export function HeroSection() {
+  const router = useRouter()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [showProblem, setShowProblem] = useState(false)
   const [showSolution, setShowSolution] = useState(false)
@@ -33,6 +35,11 @@ export function HeroSection() {
         }, 2500) // Wait longer for problem to fade out completely (much slower)
       }, 8000) // Show problem for 8 seconds (more reading time)
     }, 2000) // Wait even longer after typing completes for better pacing
+  }
+
+  // Handler for Get Started button
+  const handleGetStarted = () => {
+    router.push('/platform')
   }
 
   return (
@@ -443,6 +450,7 @@ export function HeroSection() {
                   }}
                 >
                   <Button 
+                    onClick={handleGetStarted}
                     className="group relative px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-space-grotesk font-semibold tracking-wide text-white rounded-xl overflow-hidden transition-all duration-200 shadow-xl hover:shadow-blue-500/30 border border-blue-500/30 hover:border-blue-400/50 w-full sm:w-auto min-h-[50px] md:min-h-[56px]"
                     style={{
                       background: 'linear-gradient(135deg, #0047AB 0%, #007FFF 50%, #00BFFF 100%)',
