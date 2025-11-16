@@ -60,8 +60,8 @@ export function PlatformView() {
       </motion.nav>
       
       {/* Main Content */}
-      <main className="relative z-10 w-full text-white pt-20 sm:pt-24 min-h-screen">
-        <div className="container mx-auto px-4 sm:px-8 py-4 sm:py-20 min-h-screen flex flex-col">
+      <main className="relative z-10 w-full text-white pt-20 sm:pt-24 min-h-screen overflow-visible">
+        <div className="container mx-auto px-4 sm:px-8 py-4 sm:py-20 min-h-screen flex flex-col overflow-visible">
           
           {/* Featured 3D Device Section */}
           <motion.div

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export const CyberSecurityDevice = () => {
   return (
-    <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[600px] flex items-center justify-center overflow-hidden" style={{ perspective: '2000px' }}>
+    <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[600px] flex items-center justify-center overflow-visible px-4 py-8" style={{ perspective: '2000px' }}>
       
       {/* Ambient Particle Field */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -43,12 +43,12 @@ export const CyberSecurityDevice = () => {
       {/* 3D Security Console - Horizontal Floating Position */}
       <motion.div
         className="relative"
-        initial={{ opacity: 0, rotateX: 5, rotateY: 25, y: 60, scale: 0.8 }}
+        initial={{ opacity: 0, rotateX: 5, rotateY: 25, y: 20, scale: 0.9 }}
         animate={{ 
           opacity: 1,
-          rotateX: [2, 8, 2],
-          rotateY: [20, 30, 20],
-          y: [-10, 10, -10],
+          rotateX: [3, 7, 3],
+          rotateY: [22, 28, 22],
+          y: [-5, 5, -5],
           scale: 1,
         }}
         transition={{
@@ -60,7 +60,7 @@ export const CyberSecurityDevice = () => {
         }}
         style={{
           transformStyle: 'preserve-3d',
-          transform: 'rotateX(5deg) rotateY(25deg) translateZ(50px)',
+          transform: 'rotateX(5deg) rotateY(25deg) translateZ(30px)',
         }}
       >
         {/* Console Base - Floating 3D Dashboard */}
