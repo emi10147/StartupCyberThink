@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export const CyberSecurityDevice = () => {
   return (
-    <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] flex items-center justify-center overflow-hidden" style={{ perspective: '2000px' }}>
+    <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[600px] flex items-center justify-center overflow-hidden" style={{ perspective: '2000px' }}>
       
       {/* Ambient Particle Field */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -67,8 +67,8 @@ export const CyberSecurityDevice = () => {
         <div 
           className="relative bg-gradient-to-br from-slate-800/40 via-slate-900/60 to-black/80 rounded-xl sm:rounded-2xl border border-slate-600/30 backdrop-blur-3xl mx-2 sm:mx-0"
           style={{
-            width: 'clamp(320px, 95vw, 700px)',
-            height: 'clamp(280px, 60vh, 400px)',
+            width: 'clamp(280px, 85vw, 650px)',
+            height: 'clamp(220px, 45vh, 350px)',
             transformStyle: 'preserve-3d',
             boxShadow: `
               0 50px 120px -20px rgba(0, 0, 0, 0.8),
@@ -145,16 +145,16 @@ export const CyberSecurityDevice = () => {
           />
 
           {/* Console Content */}
-          <div className="absolute inset-3 sm:inset-6 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4">
+          <div className="absolute inset-2 sm:inset-4 lg:inset-6 grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-3 lg:gap-4">
             
             {/* Status Panel - Top Left */}
             <motion.div
-              className="col-span-1 bg-slate-900/20 rounded border sm:rounded-lg border-slate-500/10 p-2 sm:p-3 backdrop-blur-sm"
+              className="col-span-1 bg-slate-900/20 rounded border sm:rounded-lg border-slate-500/10 p-1.5 sm:p-2 lg:p-3 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.5 }}
             >
-              <div className="text-[8px] sm:text-[10px] text-cyan-300/80 font-mono mb-1 tracking-wider">STATUS</div>
+              <div className="text-[7px] sm:text-[9px] lg:text-[10px] text-cyan-300/80 font-mono mb-1 tracking-wider">STATUS</div>
               <motion.div
                 className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full mb-2"
                 style={{ 
@@ -166,18 +166,18 @@ export const CyberSecurityDevice = () => {
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
-              <div className="text-white text-[10px] sm:text-xs font-light">Secure</div>
-              <div className="text-slate-400 text-[8px] sm:text-[10px]">98.7%</div>
+              <div className="text-white text-[9px] sm:text-[10px] lg:text-xs font-light">Secure</div>
+              <div className="text-slate-400 text-[7px] sm:text-[8px] lg:text-[10px]">98.7%</div>
             </motion.div>
 
             {/* Main Display - Center */}
             <motion.div
-              className="col-span-2 bg-slate-900/15 rounded border sm:rounded-lg border-slate-500/10 p-2 sm:p-4 backdrop-blur-sm"
+              className="col-span-2 bg-slate-900/15 rounded border sm:rounded-lg border-slate-500/10 p-1.5 sm:p-2 lg:p-4 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2 }}
             >
-              <div className="text-[8px] sm:text-[10px] text-cyan-300/80 font-mono mb-2 tracking-wider">NETWORK OVERVIEW</div>
+              <div className="text-[7px] sm:text-[9px] lg:text-[10px] text-cyan-300/80 font-mono mb-1 sm:mb-2 tracking-wider">NETWORK OVERVIEW</div>
               
               {/* 3D Network Visualization */}
               <div className="relative h-20 flex items-center justify-center">
