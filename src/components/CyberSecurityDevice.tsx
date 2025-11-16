@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export const CyberSecurityDevice = () => {
   return (
-    <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[600px] flex items-center justify-center overflow-hidden" style={{ perspective: '2000px' }}>
+    <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] flex items-center justify-center overflow-hidden" style={{ perspective: '2000px' }}>
       
       {/* Ambient Particle Field */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -67,8 +67,8 @@ export const CyberSecurityDevice = () => {
         <div 
           className="relative bg-gradient-to-br from-slate-800/40 via-slate-900/60 to-black/80 rounded-xl sm:rounded-2xl border border-slate-600/30 backdrop-blur-3xl mx-2 sm:mx-0"
           style={{
-            width: 'clamp(280px, 90vw, 700px)',
-            height: 'clamp(200px, 50vh, 400px)',
+            width: 'clamp(320px, 95vw, 700px)',
+            height: 'clamp(280px, 60vh, 400px)',
             transformStyle: 'preserve-3d',
             boxShadow: `
               0 50px 120px -20px rgba(0, 0, 0, 0.8),
