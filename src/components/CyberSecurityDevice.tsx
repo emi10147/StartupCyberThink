@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export const CyberSecurityDevice = () => {
   return (
-    <div className="relative w-full h-[600px] flex items-center justify-center" style={{ perspective: '2000px' }}>
+    <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[600px] flex items-center justify-center overflow-hidden" style={{ perspective: '2000px' }}>
       
       {/* Ambient Particle Field */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -65,10 +65,10 @@ export const CyberSecurityDevice = () => {
       >
         {/* Console Base - Floating 3D Dashboard */}
         <div 
-          className="relative bg-gradient-to-br from-slate-800/40 via-slate-900/60 to-black/80 rounded-2xl border border-slate-600/30 backdrop-blur-3xl"
+          className="relative bg-gradient-to-br from-slate-800/40 via-slate-900/60 to-black/80 rounded-xl sm:rounded-2xl border border-slate-600/30 backdrop-blur-3xl mx-2 sm:mx-0"
           style={{
-            width: '700px',
-            height: '400px',
+            width: 'clamp(280px, 90vw, 700px)',
+            height: 'clamp(200px, 50vh, 400px)',
             transformStyle: 'preserve-3d',
             boxShadow: `
               0 50px 120px -20px rgba(0, 0, 0, 0.8),
@@ -79,10 +79,10 @@ export const CyberSecurityDevice = () => {
           }}
         >
           {/* Window Control Buttons - Top Left Corner */}
-          <div className="absolute top-2 left-4 flex gap-2 z-10">
+          <div className="absolute top-1.5 sm:top-2 left-2 sm:left-4 flex gap-1.5 sm:gap-2 z-10">
             {/* Close Button - Red */}
             <motion.div
-              className="w-3 h-3 bg-red-500 rounded-full cursor-pointer"
+              className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full cursor-pointer"
               style={{ 
                 boxShadow: '0 0 4px rgba(239, 68, 68, 0.6)'
               }}
@@ -99,7 +99,7 @@ export const CyberSecurityDevice = () => {
             
             {/* Minimize Button - Yellow */}
             <motion.div
-              className="w-3 h-3 bg-yellow-500 rounded-full cursor-pointer"
+              className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full cursor-pointer"
               style={{ 
                 boxShadow: '0 0 4px rgba(234, 179, 8, 0.6)'
               }}
@@ -116,7 +116,7 @@ export const CyberSecurityDevice = () => {
             
             {/* Maximize Button - Green */}
             <motion.div
-              className="w-3 h-3 bg-green-500 rounded-full cursor-pointer"
+              className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full cursor-pointer"
               style={{ 
                 boxShadow: '0 0 4px rgba(34, 197, 94, 0.6)'
               }}
@@ -145,18 +145,18 @@ export const CyberSecurityDevice = () => {
           />
 
           {/* Console Content */}
-          <div className="absolute inset-6 grid grid-cols-4 gap-4">
+          <div className="absolute inset-3 sm:inset-6 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4">
             
             {/* Status Panel - Top Left */}
             <motion.div
-              className="col-span-1 bg-slate-900/20 rounded-lg border border-slate-500/10 p-3 backdrop-blur-sm"
+              className="col-span-1 bg-slate-900/20 rounded border sm:rounded-lg border-slate-500/10 p-2 sm:p-3 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.5 }}
             >
-              <div className="text-[10px] text-cyan-300/80 font-mono mb-1 tracking-wider">STATUS</div>
+              <div className="text-[8px] sm:text-[10px] text-cyan-300/80 font-mono mb-1 tracking-wider">STATUS</div>
               <motion.div
-                className="w-2 h-2 bg-green-400 rounded-full mb-2"
+                className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full mb-2"
                 style={{ 
                   filter: 'blur(0.5px)',
                   boxShadow: '0 0 6px rgba(34, 197, 94, 0.8)'
@@ -166,18 +166,18 @@ export const CyberSecurityDevice = () => {
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
-              <div className="text-white text-xs font-light">Secure</div>
-              <div className="text-slate-400 text-[10px]">98.7%</div>
+              <div className="text-white text-[10px] sm:text-xs font-light">Secure</div>
+              <div className="text-slate-400 text-[8px] sm:text-[10px]">98.7%</div>
             </motion.div>
 
             {/* Main Display - Center */}
             <motion.div
-              className="col-span-2 bg-slate-900/15 rounded-lg border border-slate-500/10 p-4 backdrop-blur-sm"
+              className="col-span-2 bg-slate-900/15 rounded border sm:rounded-lg border-slate-500/10 p-2 sm:p-4 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2 }}
             >
-              <div className="text-[10px] text-cyan-300/80 font-mono mb-2 tracking-wider">NETWORK OVERVIEW</div>
+              <div className="text-[8px] sm:text-[10px] text-cyan-300/80 font-mono mb-2 tracking-wider">NETWORK OVERVIEW</div>
               
               {/* 3D Network Visualization */}
               <div className="relative h-20 flex items-center justify-center">
@@ -256,14 +256,14 @@ export const CyberSecurityDevice = () => {
 
             {/* Metrics - Top Right */}
             <motion.div
-              className="col-span-1 bg-slate-900/20 rounded-lg border border-slate-500/10 p-3 backdrop-blur-sm"
+              className="col-span-1 bg-slate-900/20 rounded border sm:rounded-lg border-slate-500/10 p-2 sm:p-3 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2.5 }}
             >
-              <div className="text-[10px] text-cyan-300/80 font-mono mb-1 tracking-wider">RESPONSE</div>
+              <div className="text-[8px] sm:text-[10px] text-cyan-300/80 font-mono mb-1 tracking-wider">RESPONSE</div>
               <motion.div
-                className="w-1 h-1 bg-orange-400 rounded-full mb-2"
+                className="w-0.5 h-0.5 sm:w-1 sm:h-1 bg-orange-400 rounded-full mb-2"
                 style={{ 
                   filter: 'blur(0.3px)',
                   boxShadow: '0 0 4px rgba(251, 146, 60, 0.8)'
@@ -274,8 +274,8 @@ export const CyberSecurityDevice = () => {
                 }}
                 transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
               />
-              <div className="text-white text-xs font-light">0.12ms</div>
-              <div className="text-slate-400 text-[10px]">Avg</div>
+              <div className="text-white text-[10px] sm:text-xs font-light">0.12ms</div>
+              <div className="text-slate-400 text-[8px] sm:text-[10px]">Avg</div>
             </motion.div>
 
             {/* Analytics - Bottom Row */}
@@ -307,9 +307,9 @@ export const CyberSecurityDevice = () => {
                 />
               </div>
               
-              <div className="flex justify-between text-[10px] text-slate-400 mt-2">
+              <div className="flex justify-between text-[8px] sm:text-[10px] text-slate-400 mt-2">
                 <span>Threats: 0</span>
-                <span>Analyzed: 2.7M</span>
+                <span className="hidden sm:inline">Analyzed: 2.7M</span>
                 <span>Active: 847</span>
               </div>
             </motion.div>
@@ -317,7 +317,7 @@ export const CyberSecurityDevice = () => {
 
           {/* Subtle edge glow */}
           <motion.div
-            className="absolute inset-0 rounded-2xl"
+            className="absolute inset-0 rounded-xl sm:rounded-2xl"
             style={{
               background: `conic-gradient(from 0deg at 50% 50%, 
                 rgba(59, 130, 246, 0.04) 0deg,

@@ -60,20 +60,20 @@ export function PlatformView() {
       </motion.nav>
       
       {/* Main Content */}
-      <main className="relative z-10 w-full text-white pt-24 sm:pt-20">
-        <div className="container mx-auto px-4 sm:px-8 py-8 sm:py-20">
+      <main className="relative z-10 w-full text-white pt-20 sm:pt-24">
+        <div className="container mx-auto px-4 sm:px-8 py-4 sm:py-20">
           
           {/* Featured 3D Device Section */}
           <motion.div
-            className="text-center mb-20"
+            className="text-center mb-8 sm:mb-20"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.2 }}
           >
-            <h1 className="text-5xl font-normal tracking-wider mb-3 text-white/95 leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-normal tracking-wider mb-3 text-white/95 leading-tight px-2">
               Enterprise Security Platform
             </h1>
-            <p className="text-lg font-normal text-slate-300/90 mb-16 max-w-2xl mx-auto leading-relaxed tracking-wider">
+            <p className="text-base sm:text-lg font-normal text-slate-300/90 mb-8 sm:mb-16 max-w-2xl mx-auto leading-relaxed tracking-wider px-2">
               Professional-grade cybersecurity command center with real-time threat detection and advanced monitoring capabilities
             </p>
             
