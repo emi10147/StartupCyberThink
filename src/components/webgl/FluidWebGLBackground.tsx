@@ -58,13 +58,13 @@ function FluidBackground() {
           return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
         }
 
-        // Fractal noise
+        // Fractal noise - reduced iterations for performance
         float fbm(vec2 p) {
           float value = 0.0;
           float amplitude = 0.5;
           float frequency = 1.0;
           
-          for(int i = 0; i < 6; i++) {
+          for(int i = 0; i < 4; i++) { // Reduced from 6 to 4 iterations
             value += amplitude * smoothNoise(p * frequency);
             amplitude *= 0.5;
             frequency *= 2.0;
@@ -90,38 +90,31 @@ function FluidBackground() {
         // Create flowing organic shapes (more subtle)
         vec2 p1 = uv + vec2(sin(time * 0.15) * 0.08, cos(time * 0.2) * 0.12);
         vec2 p2 = uv + vec2(cos(time * 0.25) * 0.1, sin(time * 0.1) * 0.08);
-        vec2 p3 = uv + vec2(sin(time * 0.35) * 0.12, cos(time * 0.3) * 0.06);          // Generate noise patterns (slower)
-          float noise1 = fbm(p1 * 1.8 + time * 0.05);
-          float noise2 = fbm(p2 * 1.3 + time * 0.07);
-          float noise3 = fbm(p3 * 2.0 + time * 0.04);
+        vec2 p3 = uv + vec2(sin(time * 0.35) * 0.12, cos(time * 0.3) * 0.06);          // Generate noise patterns - reduced complexity
+          float noise1 = fbm(p1 * 1.5 + time * 0.04);
+          float noise2 = fbm(p2 * 1.2 + time * 0.05);
           
-        // Create organic distance fields (slower movement)
-        float shape1 = sdOrganicShape(p1, time * 0.6);
-        float shape2 = sdOrganicShape(p2 + vec2(0.5, -0.3), time * 0.4);
-        float shape3 = sdOrganicShape(p3 - vec2(-0.4, 0.6), time * 0.7);          // Create glow effects
-          float glow1 = exp(-abs(shape1) * 3.0) * noise1;
-          float glow2 = exp(-abs(shape2) * 4.0) * noise2;
-          float glow3 = exp(-abs(shape3) * 2.5) * noise3;
+        // Create organic distance fields - simplified to 2 shapes
+        float shape1 = sdOrganicShape(p1, time * 0.5);
+        float shape2 = sdOrganicShape(p2 + vec2(0.5, -0.3), time * 0.4);          // Create glow effects - simplified
+          float glow1 = exp(-abs(shape1) * 2.5) * noise1;
+          float glow2 = exp(-abs(shape2) * 3.5) * noise2;
           
-          // Mix colors based on position and noise
+          // Mix colors based on position and noise - optimized
           vec3 color = vec3(0.0);
           
           // Deep blue base with gentle flowing movement
-          color += u_color1 * glow1 * (0.6 + 0.4 * sin(time * 0.5 + uv.x * 1.0));
+          color += u_color1 * glow1 * (0.6 + 0.4 * sin(time * 0.4 + uv.x * 0.8));
           
           // Medium blue flows
-          color += u_color2 * glow2 * (0.5 + 0.5 * cos(time * 0.4 + uv.y * 1.5));
+          color += u_color2 * glow2 * (0.5 + 0.5 * cos(time * 0.3 + uv.y * 1.0));
           
-          // Bright blue accents
-          color += u_color3 * glow3 * (0.4 + 0.6 * sin(time * 0.6 + length(uv) * 1.0));
+          // Sky blue edges - simplified
+          float edge = smoothstep(0.9, 1.1, length(uv));
+          color += u_color4 * edge * 0.15;
           
-          // Sky blue edges
-          float edge = smoothstep(0.8, 1.2, length(uv));
-          color += u_color4 * edge * 0.2;
-          
-          // Cyan highlights (subtle)
-          float highlight = smoothstep(0.3, 0.0, abs(sin(time * 0.5 + uv.x * 2.0) * cos(time * 0.4 + uv.y * 1.5)));
-          color += u_color5 * highlight * 0.3;
+          // Cyan highlights - reduced complexity
+          color += u_color5 * glow1 * 0.2;
           
           // Add overall atmospheric glow
           float atmosphericGlow = 1.0 - length(uv) * 0.3;
@@ -151,15 +144,20 @@ function FluidBackground() {
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
-  // Update uniforms on every frame
+  // Update uniforms on every frame - production optimized
   useFrame((state) => {
     if (material && material.uniforms) {
-      material.uniforms.u_time.value = state.clock.elapsedTime
+      // Smooth time progression for production
+      material.uniforms.u_time.value = state.clock.elapsedTime * 0.6
       material.uniforms.u_mouse.value.copy(mousePos.current)
-      material.uniforms.u_resolution.value.set(
-        typeof window !== 'undefined' ? window.innerWidth : 1920,
-        typeof window !== 'undefined' ? window.innerHeight : 1080
-      )
+      
+      // Update resolution only when needed
+      if (state.clock.elapsedTime % 2 < 0.016) { // ~60fps check
+        material.uniforms.u_resolution.value.set(
+          typeof window !== 'undefined' ? window.innerWidth : 1920,
+          typeof window !== 'undefined' ? window.innerHeight : 1080
+        )
+      }
     }
   })
 
@@ -176,12 +174,18 @@ export function FluidWebGLBackground() {
       <Canvas
         camera={{ position: [0, 0, 1], fov: 75 }}
         gl={{ 
-          antialias: true, 
+          antialias: false,
           alpha: true,
-          powerPreference: "high-performance"
+          powerPreference: "high-performance",
+          stencil: false,
+          depth: false,
+          preserveDrawingBuffer: false,
+          failIfMajorPerformanceCaveat: true
         }}
-        dpr={typeof window !== 'undefined' ? Math.min(window.devicePixelRatio || 1, 2) : 1}
+        dpr={typeof window !== 'undefined' ? Math.min(window.devicePixelRatio || 1, 1.2) : 1}
         style={{ width: '100%', height: '100%' }}
+        frameloop="always"
+        performance={{ min: 0.8 }}
       >
         <FluidBackground />
       </Canvas>

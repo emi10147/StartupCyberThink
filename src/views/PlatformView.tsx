@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { CyberSecurityDevice } from '@/components/CyberSecurityDevice'
 import { FluidWebGLBackground } from '@/components/webgl/FluidWebGLBackground'
+import { Additional3DElements } from '@/components/Additional3DElements'
 import { WebGLBackground } from '@/components/webgl/WebGLBackground'
 
 export function PlatformView() {
@@ -78,7 +79,14 @@ export function PlatformView() {
             </p>
             
             {/* Featured 3D Cybersecurity Device */}
-            <CyberSecurityDevice />
+            <div className="relative">
+              <CyberSecurityDevice />
+              
+              {/* Additional 3D Elements on the right side - Desktop only */}
+              <div className="absolute inset-0 pointer-events-none hidden lg:block">
+                <Additional3DElements />
+              </div>
+            </div>
           </motion.div>
         </div>
       </main>

@@ -6,9 +6,9 @@ export const CyberSecurityDevice = () => {
   return (
     <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[600px] flex items-center justify-center overflow-visible px-4 py-8" style={{ perspective: '2000px' }}>
       
-      {/* Ambient Particle Field */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Floating data particles */}
+      {/* Ambient Particle Field - Optimized */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden will-change-transform">
+        {/* Floating data particles - Reduced for performance */}
         <motion.div
           className="absolute w-1 h-1 bg-blue-400/40 rounded-full"
           style={{ left: '20%', top: '30%' }}
@@ -17,46 +17,36 @@ export const CyberSecurityDevice = () => {
             x: [0, 5, 0],
             opacity: [0.3, 0.7, 0.3]
           }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute w-0.5 h-0.5 bg-purple-400/30 rounded-full"
           style={{ right: '25%', top: '40%' }}
           animate={{
             y: [0, -15, 0],
-            x: [0, -3, 0],
             opacity: [0.2, 0.6, 0.2]
           }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
-        <motion.div
-          className="absolute w-1.5 h-1.5 bg-cyan-400/20 rounded-full"
-          style={{ left: '70%', top: '60%' }}
-          animate={{
-            y: [0, -25, 0],
-            opacity: [0.2, 0.5, 0.2]
-          }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         />
       </div>
 
-      {/* 3D Security Console - Horizontal Floating Position */}
+      {/* 3D Security Console - Production Optimized */}
       <motion.div
-        className="relative"
+        className="relative transform-gpu"
         initial={{ opacity: 0, rotateX: 5, rotateY: 25, y: 20, scale: 0.9 }}
         animate={{ 
           opacity: 1,
-          rotateX: [3, 7, 3],
-          rotateY: [22, 28, 22],
-          y: [-5, 5, -5],
+          rotateX: [3, 6, 3],
+          rotateY: [23, 27, 23],
+          y: [-3, 3, -3],
           scale: 1,
         }}
         transition={{
-          opacity: { duration: 2, delay: 0.5 },
-          scale: { duration: 2, delay: 0.5 },
-          rotateX: { duration: 20, repeat: Infinity, ease: "easeInOut" },
-          rotateY: { duration: 18, repeat: Infinity, ease: "easeInOut" },
-          y: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+          opacity: { duration: 2, delay: 0.5, ease: "easeOut" },
+          scale: { duration: 2, delay: 0.5, ease: "easeOut" },
+          rotateX: { duration: 25, repeat: Infinity, ease: "easeInOut" },
+          rotateY: { duration: 22, repeat: Infinity, ease: "easeInOut" },
+          y: { duration: 10, repeat: Infinity, ease: "easeInOut" },
         }}
         style={{
           transformStyle: 'preserve-3d',
