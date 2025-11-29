@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
   images: {
     domains: [],
+    unoptimized: true,
   },
   webpack: (config, { isServer }) => {
     // WebGL and Three.js optimization
