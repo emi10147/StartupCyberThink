@@ -10,7 +10,7 @@ export function HeroSection() {
   const router = useRouter()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [showProblem, setShowProblem] = useState(false)
-  const [showSolution, setShowSolution] = useState(false)
+  const [showButton, setShowButton] = useState(false)
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -27,14 +27,14 @@ export function HeroSection() {
   // Handler for when typewriter completes
   const handleTypewriterComplete = () => {
     setTimeout(() => {
-      setShowProblem(true) // Fade in problem statement first
+      setShowProblem(true) // Fade in problem statement
       setTimeout(() => {
-        setShowProblem(false) // Fade out problem
+        setShowButton(true) // Show button
         setTimeout(() => {
-          setShowSolution(true) // Fade in solution
-        }, 2500) // Wait longer for problem to fade out completely (much slower)
-      }, 8000) // Show problem for 8 seconds (more reading time)
-    }, 2000) // Wait even longer after typing completes for better pacing
+          setShowProblem(false) // Fade out problem text
+        }, 2000) // Wait 2 seconds after button appears to fade out problem
+      }, 6000) // Show problem for 6 seconds
+    }, 2000) // Wait after typing completes
   }
 
   // Handler for Get Started button
@@ -251,7 +251,7 @@ export function HeroSection() {
           }}
         >
           <h1 
-            className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-space-grotesk font-bold tracking-tight"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-space-grotesk font-bold tracking-tight px-4"
             style={{
               // Ensure smooth rendering on all devices
               WebkitFontSmoothing: 'antialiased',
@@ -261,7 +261,7 @@ export function HeroSection() {
           >
             <span className="block bg-gradient-to-r from-blue-300 via-cyan-400 to-sky-400 bg-clip-text text-transparent leading-tight">
               <TypewriterText 
-                text="CyberThink" 
+                text="The Problem" 
                 delay={200}
                 speed={60}
                 showCursor={true}
@@ -284,247 +284,131 @@ export function HeroSection() {
           }}
         >
           {/* Problem Section - Ultra Smooth Transitions */}
-          <AnimatePresence mode="wait">
+          <div className="min-h-[250px] flex items-center justify-center">
+            <AnimatePresence mode="wait">
               {showProblem && (
-              <motion.div
-                key="problem-section"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ 
-                  duration: 0.8,
-                  ease: [0.23, 1, 0.32, 1]
-                }}
-                className="space-y-6 md:space-y-8 mb-8 md:mb-12"
-                style={{
-                  // Performance optimizations
-                  willChange: 'opacity, transform',
-                  backfaceVisibility: 'hidden',
-                  transform: 'translateZ(0)'
-                }}
-              >
-                {/* Problem Title - Consistent Timing */}
-                <motion.h2
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ 
-                    duration: 0.6, 
-                    delay: 0.1, 
-                    ease: [0.23, 1, 0.32, 1]
-                  }}
-                  className="text-xl md:text-2xl lg:text-3xl font-space-grotesk font-semibold text-center mb-6 md:mb-8"
-                >
-                  <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                    The Problem
-                  </span>
-                </motion.h2>                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ 
-                    duration: 0.6, 
-                    delay: 0.2, 
-                    ease: [0.23, 1, 0.32, 1] 
-                  }}
-                  className="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed font-space-grotesk font-light tracking-wide text-center space-y-4 md:space-y-6"
-                  style={{
-                    // Enhanced text rendering
-                    WebkitFontSmoothing: 'antialiased',
-                    textRendering: 'optimizeLegibility'
-                  }}
-                >
-                <p>
-                  Organizations are increasingly investing in{' '}
-                  <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-sky-400 bg-clip-text text-transparent font-semibold">
-                    cybersecurity without a clear understanding
-                  </span>
-                  {' '}of how much risk they are actually mitigating.
-                </p>
-                
-                <p>
-                  Decisions are often{' '}
-                  <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent font-semibold">
-                    reactive and misaligned
-                  </span>
-                  {' '}with corporate strategy.
-                </p>
-                
-                <p>
-                  There is a lack of a{' '}
-                  <span className="bg-gradient-to-r from-sky-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent font-semibold">
-                    quantitative, visual, and dynamic way
-                  </span>
-                  {' '}to connect technical controls with risk exposure and business capability.
-                </p>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-          <AnimatePresence mode="wait" initial={false}>
-            {showSolution && (
-              <motion.div
-                key="solution"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.7, 
-                  ease: [0.23, 1, 0.32, 1]
-                }}
-                className="space-y-6 md:space-y-8 mb-8 md:mb-12"
-                style={{
-                  // Performance optimizations
-                  willChange: 'opacity, transform',
-                  backfaceVisibility: 'hidden',
-                  transform: 'translateZ(0)'
-                }}
-              >
-                {/* Solution Title - Consistent Timing */}
-                <motion.h2
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ 
-                    duration: 0.5, 
-                    delay: 0.1, 
-                    ease: [0.23, 1, 0.32, 1]
-                  }}
-                  className="text-xl md:text-2xl lg:text-3xl font-space-grotesk font-semibold text-center mb-6 md:mb-8"
-                >
-                  <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent">
-                    Our Solution
-                  </span>
-                </motion.h2>
-
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ 
-                    duration: 0.5, 
-                    delay: 0.2, 
-                    ease: [0.23, 1, 0.32, 1] 
-                  }}
-                  className="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed font-space-grotesk font-light tracking-wide text-center"
-                  style={{
-                    // Enhanced text rendering
-                    WebkitFontSmoothing: 'antialiased',
-                    textRendering: 'optimizeLegibility'
-                  }}
-                >
-                An integrated model that combines{' '}
-                <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent font-semibold">
-                  artificial intelligence
-                </span>
-                , quantitative analytics, and risk management expertise to help organizations{' '}
-                <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-sky-300 bg-clip-text text-transparent font-semibold">
-                  define, visualize, and manage
-                </span>
-                {' '}their cyber risk and risk appetite.
-              </motion.p>
-            </motion.div>
-          )}
-        </AnimatePresence>
-        
-          {/* Enhanced CTA Buttons - Only show when solution is visible */}
-          <AnimatePresence mode="wait" initial={false}>
-            {showSolution && (
-              <motion.div
-                key="buttons"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: 0.3, 
-                  ease: [0.23, 1, 0.32, 1]
-                }}
-                className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mt-8 md:mt-12 px-4"
-              >
-                {/* Primary CTA Button - Enhanced Responsiveness */}
                 <motion.div
-                  whileHover={{ 
-                    scale: 1.02, 
-                    y: -1,
-                    transition: { duration: 0.15, ease: [0.23, 1, 0.32, 1] }
+                  key="problem-section"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ 
+                    duration: 1.2,
+                    ease: [0.25, 0.46, 0.45, 0.94]
                   }}
-                  whileTap={{ 
-                    scale: 0.99,
-                    transition: { duration: 0.1, ease: [0.23, 1, 0.32, 1] }
+                  className="space-y-6 md:space-y-8 mb-8 md:mb-12"
+                  style={{
+                    // Performance optimizations
+                    willChange: 'opacity, transform',
+                    backfaceVisibility: 'hidden',
+                    transform: 'translateZ(0)'
                   }}
                 >
-                  <Button 
-                    onClick={handleGetStarted}
-                    className="group relative px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-space-grotesk font-semibold tracking-wide text-white rounded-xl overflow-hidden transition-all duration-200 shadow-xl hover:shadow-blue-500/30 border border-blue-500/30 hover:border-blue-400/50 w-full sm:w-auto min-h-[50px] md:min-h-[56px]"
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ 
+                      duration: 1.0, 
+                      delay: 0.4, 
+                      ease: [0.25, 0.46, 0.45, 0.94] 
+                    }}
+                    className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed font-space-grotesk font-light tracking-wide text-center space-y-3 md:space-y-6 px-4"
                     style={{
-                      background: 'linear-gradient(135deg, #0047AB 0%, #007FFF 50%, #00BFFF 100%)',
-                      // Enhanced mobile optimization
-                      touchAction: 'manipulation',
-                      WebkitTapHighlightColor: 'transparent'
+                      // Enhanced text rendering
+                      WebkitFontSmoothing: 'antialiased',
+                      textRendering: 'optimizeLegibility'
                     }}
                   >
-                    <motion.div 
-                      className="absolute inset-0 bg-gradient-to-r from-blue-500 via-cyan-500 to-sky-500"
-                      initial={{ opacity: 0 }}
-                      whileHover={{ 
-                        opacity: 1,
-                        transition: { duration: 0.2 }
+                    <p>
+                      Organizations are increasingly investing in{' '}
+                      <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-sky-400 bg-clip-text text-transparent font-semibold">
+                        cybersecurity without a clear understanding
+                      </span>
+                      {' '}of how much risk they are actually mitigating.
+                    </p>
+                    
+                    <p>
+                      Decisions are often{' '}
+                      <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent font-semibold">
+                        reactive and misaligned
+                      </span>
+                      {' '}with corporate strategy.
+                    </p>
+                    
+                    <p>
+                      There is a lack of a{' '}
+                      <span className="bg-gradient-to-r from-sky-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent font-semibold">
+                        quantitative, visual, and dynamic way
+                      </span>
+                      {' '}to connect technical controls with risk exposure and business capability.
+                    </p>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+        {/* Get Started Button */}
+        <AnimatePresence mode="wait" initial={false}>
+          {showButton && (
+            <motion.div
+              key="button"
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 1.0, 
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              className="flex justify-center mt-12"
+            >
+              <motion.div
+                whileHover={{ 
+                  scale: 1.02,
+                  transition: { duration: 0.15, ease: [0.23, 1, 0.32, 1] }
+                }}
+                whileTap={{ 
+                  scale: 0.98,
+                  transition: { duration: 0.1, ease: [0.23, 1, 0.32, 1] }
+                }}
+              >
+                <Button 
+                  onClick={handleGetStarted}
+                  className="group relative px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 text-base sm:text-lg md:text-xl font-space-grotesk font-semibold tracking-wide text-white rounded-xl overflow-hidden transition-all duration-300 shadow-xl hover:shadow-blue-500/40 border border-blue-500/30 hover:border-blue-400/60 w-full sm:w-auto max-w-xs sm:max-w-none mx-auto"
+                  style={{
+                    background: 'linear-gradient(135deg, #0047AB 0%, #007FFF 50%, #00BFFF 100%)',
+                    touchAction: 'manipulation',
+                    WebkitTapHighlightColor: 'transparent'
+                  }}
+                >
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-r from-blue-400 via-cyan-400 to-sky-400"
+                    initial={{ opacity: 0 }}
+                    whileHover={{ 
+                      opacity: 1,
+                      transition: { duration: 0.3 }
+                    }}
+                  />
+                  <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
+                    Get Started
+                    <motion.svg 
+                      className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                      whileHover={{
+                        x: 3,
+                        transition: { duration: 0.2, ease: [0.23, 1, 0.32, 1] }
                       }}
-                    />
-                    <span className="relative z-10 flex items-center justify-center gap-3">
-                      Get Started
-                      <motion.svg 
-                        className="w-4 h-4 md:w-5 md:h-5" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
-                        whileHover={{
-                          x: 2,
-                          transition: { duration: 0.2, ease: [0.23, 1, 0.32, 1] }
-                        }}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                      </motion.svg>
-                    </span>
-                  </Button>
-                </motion.div>
-                
-                {/* Secondary CTA Button - Enhanced Responsiveness */}
-                <motion.div
-                  whileHover={{ 
-                    scale: 1.01, 
-                    y: -1,
-                    transition: { duration: 0.15, ease: [0.23, 1, 0.32, 1] }
-                  }}
-                  whileTap={{ 
-                    scale: 0.99,
-                    transition: { duration: 0.1, ease: [0.23, 1, 0.32, 1] }
-                  }}
-                >
-                  <button
-                    className="group px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-space-grotesk font-medium tracking-wide text-cyan-300 border-2 border-cyan-500/40 hover:border-cyan-400/70 rounded-xl transition-all duration-200 hover:bg-cyan-500/8 hover:shadow-lg hover:shadow-cyan-500/20 backdrop-blur-sm w-full sm:w-auto min-h-[50px] md:min-h-[56px]"
-                    style={{
-                      // Enhanced mobile optimization
-                      touchAction: 'manipulation',
-                      WebkitTapHighlightColor: 'transparent'
-                    }}
-                  >
-                    <span className="flex items-center justify-center gap-3">
-                      Learn More
-                      <motion.svg 
-                        className="w-4 h-4 md:w-5 md:h-5" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
-                        whileHover={{
-                          rotate: 45,
-                          transition: { duration: 0.2, ease: [0.23, 1, 0.32, 1] }
-                        }}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                      </motion.svg>
-                    </span>
-                  </button>
-                </motion.div>
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </motion.svg>
+                  </span>
+                </Button>
               </motion.div>
-            )}
-          </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         </div>
         {/* End Content Container */}
       </div>

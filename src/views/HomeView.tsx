@@ -8,7 +8,7 @@ import { WebGLBackground } from '@/components/webgl/WebGLBackground'
 
 export function HomeView() {
   return (
-    <div className="relative w-full min-h-screen overflow-hidden">
+    <div className="relative w-full min-h-screen overflow-hidden bg-black/30">
       {/* WebGL Backgrounds */}
       <FluidWebGLBackground />
       <WebGLBackground />

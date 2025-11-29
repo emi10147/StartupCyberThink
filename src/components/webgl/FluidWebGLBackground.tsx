@@ -15,11 +15,11 @@ function FluidBackground() {
         u_time: { value: 0 },
         u_resolution: { value: new THREE.Vector2(1920, 1080) },
         u_mouse: { value: new THREE.Vector2() },
-        u_color1: { value: new THREE.Color(0x001F3F) }, // Deep Blue
-        u_color2: { value: new THREE.Color(0x0047AB) }, // Medium Blue
-        u_color3: { value: new THREE.Color(0x007FFF) }, // Bright Blue
-        u_color4: { value: new THREE.Color(0x00BFFF) }, // Sky Blue
-        u_color5: { value: new THREE.Color(0x00FFFF) }, // Cyan
+        u_color1: { value: new THREE.Color(0x000A1A) }, // Darker Deep Blue
+        u_color2: { value: new THREE.Color(0x001B33) }, // Darker Medium Blue
+        u_color3: { value: new THREE.Color(0x003366) }, // Darker Bright Blue
+        u_color4: { value: new THREE.Color(0x004080) }, // Darker Sky Blue
+        u_color5: { value: new THREE.Color(0x0066B3) }, // Darker Cyan
       },
       vertexShader: `
         varying vec2 vUv;

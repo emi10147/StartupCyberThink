@@ -156,8 +156,8 @@ export const CyberSecurityDevice = () => {
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
-              <div className="text-white text-[9px] sm:text-[10px] lg:text-xs font-light">Secure</div>
-              <div className="text-slate-400 text-[7px] sm:text-[8px] lg:text-[10px]">98.7%</div>
+              <div className="text-white text-[9px] sm:text-[10px] lg:text-xs font-tech">Secure</div>
+              <div className="text-slate-400 text-[7px] sm:text-[8px] lg:text-[10px] font-mono">98.7%</div>
             </motion.div>
 
             {/* Main Display - Center */}

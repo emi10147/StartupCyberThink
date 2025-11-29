@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google'
+import { Inter, Space_Grotesk, JetBrains_Mono, Orbitron, Exo_2 } from 'next/font/google'
 import '../styles/globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 
@@ -11,6 +11,14 @@ const spaceGrotesk = Space_Grotesk({
 const jetBrainsMono = JetBrains_Mono({ 
   subsets: ['latin'],
   variable: '--font-jetbrains-mono'
+})
+const orbitron = Orbitron({
+  subsets: ['latin'],
+  variable: '--font-orbitron'
+})
+const exo2 = Exo_2({
+  subsets: ['latin'],
+  variable: '--font-exo-2'
 })
 
 export const metadata: Metadata = {
@@ -44,7 +52,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} ${spaceGrotesk.variable} ${jetBrainsMono.variable}`}>
+      <body className={`${inter.className} ${spaceGrotesk.variable} ${jetBrainsMono.variable} ${orbitron.variable} ${exo2.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
