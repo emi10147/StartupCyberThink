@@ -6,17 +6,17 @@ import { motion } from 'framer-motion'
 export const AnimatedGlowBox = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="relative">
-      {/* Main rectangular border with yellow glow */}
+      {/* Main rectangular border with responsive padding */}
       <motion.div
-        className="relative border-2 border-blue-500/60 rounded-lg p-6 sm:p-8 md:p-12 backdrop-blur-sm mx-4 sm:mx-0"
+        className="relative border-2 border-blue-500/60 rounded-lg p-4 xs:p-5 sm:p-6 md:p-8 lg:p-12 backdrop-blur-sm mx-2 xs:mx-3 sm:mx-4 lg:mx-0"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ 
           opacity: 1, 
           scale: 1,
           boxShadow: [
-            '0 0 20px rgba(59, 130, 246, 0.3), inset 0 0 20px rgba(59, 130, 246, 0.1)',
-            '0 0 40px rgba(59, 130, 246, 0.5), inset 0 0 30px rgba(59, 130, 246, 0.2)',
-            '0 0 20px rgba(59, 130, 246, 0.3), inset 0 0 20px rgba(59, 130, 246, 0.1)'
+            '0 0 15px rgba(59, 130, 246, 0.3), inset 0 0 15px rgba(59, 130, 246, 0.1)',
+            '0 0 30px rgba(59, 130, 246, 0.5), inset 0 0 25px rgba(59, 130, 246, 0.2)',
+            '0 0 15px rgba(59, 130, 246, 0.3), inset 0 0 15px rgba(59, 130, 246, 0.1)'
           ]
         }}
         transition={{ 

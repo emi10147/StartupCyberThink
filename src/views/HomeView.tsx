@@ -1,17 +1,13 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
 import { HeroSection } from '@/components/sections/HeroSection'
-import { FluidWebGLBackground } from '@/components/webgl/FluidWebGLBackground'
-import { WebGLBackground } from '@/components/webgl/WebGLBackground'
 
 export function HomeView() {
   return (
-    <div className="relative w-full min-h-screen overflow-hidden bg-black/30">
-      {/* WebGL Backgrounds */}
-      <FluidWebGLBackground />
-      <WebGLBackground />
+    <div className="relative w-full min-h-screen overflow-hidden bg-black">
+      {/* Pure black background */}
+      <div className="absolute inset-0 bg-black" />
       
       {/* Main Content */}
       <main className="relative z-10 w-full">
