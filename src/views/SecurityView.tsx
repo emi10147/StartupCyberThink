@@ -60,7 +60,7 @@ export function SecurityView() {
       <div className="relative min-h-screen flex items-center justify-center">
         
         {/* Large Background Image - Responsive Layout */}
-        <div className="absolute inset-0 lg:left-1/2">
+        <div className="absolute inset-0 left-1/3 sm:left-1/2">
           <div className="relative w-full h-full">
             <Image
               src="/philipp-katzenberger-iIJrUoeRoCQ-unsplash.jpg"
@@ -71,24 +71,11 @@ export function SecurityView() {
               priority
             />
             
-            {/* Mobile dark overlay */}
-            <div 
-              className="absolute inset-0 lg:hidden"
-              style={{
-                background: `
-                  linear-gradient(180deg, 
-                    rgba(0, 0, 0, 0.98) 0%,
-                    rgba(0, 0, 0, 0.95) 30%,
-                    rgba(0, 0, 0, 0.9) 70%,
-                    rgba(0, 0, 0, 0.85) 100%
-                  )
-                `
-              }}
-            />
+
             
-            {/* Desktop dark overlay */}
+            {/* Gradient overlay for text readability */}
             <div 
-              className="absolute inset-0 hidden lg:block"
+              className="absolute inset-0"
               style={{
                 background: `
                   linear-gradient(90deg, 
@@ -116,11 +103,11 @@ export function SecurityView() {
           </div>
         </div>
 
-        {/* Left Side - Pure Black Background - Desktop Only */}
-        <div className="absolute inset-0 lg:right-1/2 bg-black hidden lg:block" />
+        {/* Left Side - Pure Black Background */}
+        <div className="absolute inset-0 right-2/3 sm:right-1/2 bg-black" />
         
         {/* Cyber Keyboard Background for left side */}
-        <div className="absolute inset-0 lg:right-1/2">
+        <div className="absolute inset-0 right-2/3 sm:right-1/2">
           <CyberKeyboardBackground />
         </div>
 

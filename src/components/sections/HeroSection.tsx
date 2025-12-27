@@ -19,8 +19,8 @@ export function HeroSection() {
       {/* Main Content - Coding Image Background with Text Overlay */}
       <div className="relative min-h-screen flex items-center justify-center">
         
-        {/* Large Background Image - Right Half on Desktop, Full on Mobile */}
-        <div className="absolute inset-0 lg:left-1/2">
+        {/* Large Background Image - Right Half on Desktop and Mobile */}
+        <div className="absolute inset-0 left-1/3 sm:left-1/2">
           <div className="relative w-full h-full">
             <Image
               src="/hola.jpg"
@@ -31,9 +31,9 @@ export function HeroSection() {
               priority
             />
             
-            {/* Lighter overlay for better image visibility */}
+            {/* Lighter overlay for better image visibility - desktop only */}
             <div 
-              className="absolute inset-0"
+              className="absolute inset-0 hidden sm:block"
               style={{
                 background: `
                   linear-gradient(180deg, 
@@ -46,9 +46,9 @@ export function HeroSection() {
               }}
             />
             
-            {/* Desktop gradient overlay - lighter */}
+            {/* Gradient overlay for better text readability */}
             <div 
-              className="absolute inset-0 hidden lg:block"
+              className="absolute inset-0"
               style={{
                 background: `
                   linear-gradient(90deg, 
@@ -76,11 +76,11 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Left Side - Pure Black Background on Desktop */}
-        <div className="absolute inset-0 lg:right-1/2 bg-black hidden lg:block" />
+        {/* Left Side - Pure Black Background */}
+        <div className="absolute inset-0 right-2/3 sm:right-1/2 bg-black" />
         
-        {/* Subtle background effects for left side - desktop only */}
-        <div className="absolute inset-0 lg:right-1/2 hidden lg:block">
+        {/* Subtle background effects for left side */}
+        <div className="absolute inset-0 right-2/3 sm:right-1/2">
           {/* Floating particles */}
           {Array.from({ length: 8 }).map((_, i) => (
             <motion.div
