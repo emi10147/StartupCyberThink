@@ -65,7 +65,7 @@ export function CompareView() {
         <div className="absolute inset-0 left-1/3 sm:left-1/2">
           <div className="relative w-full h-full">
             <Image
-              src="/photo-1555949963-ff9fe0c870eb.avif"
+              src="/buenas.jpg"
               alt="Fiber Optic Network Technology"
               fill
               style={{ objectFit: 'cover' }}
