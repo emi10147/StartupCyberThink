@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { CyberKeyboardBackground } from '@/components/CyberKeyboardBackground'
 
-export function SecurityView() {
+export function CompareView() {
   const [showContent, setShowContent] = useState(false)
 
   useEffect(() => {
@@ -26,8 +26,8 @@ export function SecurityView() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1 }}
       >
-        {/* Back to Platform Button */}
-        <Link href="/platform">
+        {/* Back to Security Button */}
+        <Link href="/security">
           <div className="flex items-center gap-2 xs:gap-3 cursor-pointer group">
             <div className="w-7 h-7 xs:w-8 xs:h-8 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/40 group-hover:shadow-blue-400/60 transition-all duration-300 group-hover:scale-110">
               <svg className="w-4 h-4 xs:w-5 xs:h-5 text-black font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
@@ -35,7 +35,7 @@ export function SecurityView() {
               </svg>
             </div>
             <span className="text-white font-semibold text-sm xs:text-base group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 tracking-wide">
-              Back to Platform
+              Back to Security
             </span>
           </div>
         </Link>
@@ -47,31 +47,31 @@ export function SecurityView() {
               Home
             </button>
           </Link>
-          <button className="text-gray-300 hover:bg-gradient-to-r hover:from-blue-400 hover:to-cyan-400 hover:bg-clip-text hover:text-transparent cursor-pointer transition-all duration-300 text-xs xs:text-sm md:text-base font-medium tracking-wide hidden sm:block hover:scale-105">
-            Contact
-          </button>
+          <Link href="/platform">
+            <button className="text-gray-300 hover:bg-gradient-to-r hover:from-blue-400 hover:to-cyan-400 hover:bg-clip-text hover:text-transparent cursor-pointer transition-all duration-300 text-xs xs:text-sm md:text-base font-medium tracking-wide hidden sm:block hover:scale-105">
+              Platform
+            </button>
+          </Link>
           <button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white px-4 xs:px-5 sm:px-6 md:px-8 py-2 xs:py-2.5 md:py-3 rounded-lg transition-all duration-300 text-xs xs:text-sm md:text-base font-semibold tracking-wide shadow-lg shadow-blue-500/40 hover:shadow-blue-400/60 hover:scale-105 border border-blue-400/30">
-            Get Started
+            Contact Us
           </button>
         </div>
       </motion.nav>
 
-      {/* Main Content - Image Background with Text Overlay */}
+      {/* Main Content - Fiber Optic Background with Text Overlay */}
       <div className="relative min-h-screen flex items-center justify-center">
         
-        {/* Large Background Image - Responsive Layout */}
+        {/* Large Background Image - Right Side */}
         <div className="absolute inset-0 left-1/3 sm:left-1/2">
           <div className="relative w-full h-full">
             <Image
-              src="/philipp-katzenberger-iIJrUoeRoCQ-unsplash.jpg"
-              alt="Cybersecurity Keyboard with Blue Lighting"
+              src="/photo-1555949963-ff9fe0c870eb.avif"
+              alt="Fiber Optic Network Technology"
               fill
               style={{ objectFit: 'cover' }}
               className="opacity-60 md:opacity-80"
               priority
             />
-            
-
             
             {/* Gradient overlay for text readability */}
             <div 
@@ -106,7 +106,7 @@ export function SecurityView() {
         {/* Left Side - Pure Black Background */}
         <div className="absolute inset-0 right-2/3 sm:right-1/2 bg-black" />
         
-        {/* Cyber Keyboard Background for left side */}
+        {/* Cyber background effects for left side */}
         <div className="absolute inset-0 right-2/3 sm:right-1/2">
           <CyberKeyboardBackground />
         </div>
@@ -115,12 +115,12 @@ export function SecurityView() {
         <div className="relative z-30 w-full max-w-7xl mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center min-h-screen">
             
-            {/* Left Side - Mobile Optimized Content */}
+            {/* Left Side - Content */}
             <div className="text-center lg:text-left lg:pr-8 py-8 sm:py-12 px-4 sm:px-6 lg:px-0">
               <AnimatePresence mode="wait">
                 {showContent && (
                   <>
-                    {/* Main Headline - Mobile Responsive */}
+                    {/* Main Headline */}
                     <motion.div
                       initial={{ opacity: 0, x: 0, y: -30 }}
                       animate={{ opacity: 1, x: 0, y: 0 }}
@@ -143,7 +143,7 @@ export function SecurityView() {
                             filter: `drop-shadow(0 0 8px rgba(59, 130, 246, 0.6))`
                           }}
                         >
-                          Advanced Cyber
+                          Network Security
                         </span>
                         <br />
                         <span 
@@ -152,12 +152,12 @@ export function SecurityView() {
                             filter: `drop-shadow(0 0 8px rgba(34, 211, 238, 0.6))`
                           }}
                         >
-                          Security Platform
+                          Comparison
                         </span>
                       </h1>
                     </motion.div>
 
-                    {/* Description - Mobile Optimized */}
+                    {/* Description */}
                     <motion.div
                       initial={{ opacity: 0, x: 0, y: 20 }}
                       animate={{ opacity: 1, x: 0, y: 0 }}
@@ -170,94 +170,100 @@ export function SecurityView() {
                           textShadow: `0 0 8px rgba(156, 163, 175, 0.3)`
                         }}
                       >
-                        Protecting your digital infrastructure with{' '}
+                        Compare traditional security solutions with{' '}
                         <span 
                           className="bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent font-semibold"
                           style={{
                             filter: `drop-shadow(0 0 6px rgba(34, 211, 238, 0.5))`
                           }}
                         >
-                          AI-powered threat detection
+                          TotalCiso's advanced fiber-optic speed
                         </span>
-                        {' '}and real-time monitoring.
+                        {' '}network protection and monitoring capabilities.
                       </p>
                     </motion.div>
 
-                    {/* Feature Cards - Mobile Responsive Grid */}
+                    {/* Comparison Cards */}
                     <motion.div
                       initial={{ opacity: 0, x: 0, y: 30 }}
                       animate={{ opacity: 1, x: 0, y: 0 }}
                       transition={{ duration: 1.0, delay: 0.9 }}
-                      className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-2 xs:gap-3 mb-6 sm:mb-8 lg:mb-10"
+                      className="grid grid-cols-1 xs:grid-cols-2 gap-3 xs:gap-4 mb-6 sm:mb-8 lg:mb-10"
                     >
                       {[
-                        { title: "Real-time", desc: "24/7 monitoring" },
-                        { title: "AI-Powered", desc: "Smart analytics" },
-                        { title: "Risk Analysis", desc: "Full assessment" }
-                      ].map((feature, index) => (
+                        { title: "Traditional", desc: "Slow response times", color: "red" },
+                        { title: "TotalCiso", desc: "Fiber-speed detection", color: "blue" }
+                      ].map((item, index) => (
                         <motion.div
                           key={index}
-                          className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 backdrop-blur-sm border border-blue-500/40 rounded-lg p-3 hover:border-blue-400/60 transition-all duration-300"
+                          className={`bg-gradient-to-br ${item.color === 'red' 
+                            ? 'from-red-900/30 to-red-800/30 border-red-500/40' 
+                            : 'from-blue-900/30 to-cyan-900/30 border-blue-500/40'
+                          } backdrop-blur-sm border rounded-lg p-4 hover:border-opacity-60 transition-all duration-300`}
                           style={{
                             boxShadow: `
-                              0 0 15px rgba(59, 130, 246, 0.15),
-                              inset 0 0 15px rgba(59, 130, 246, 0.08)
+                              0 0 15px ${item.color === 'red' 
+                                ? 'rgba(239, 68, 68, 0.15)' 
+                                : 'rgba(59, 130, 246, 0.15)'
+                              },
+                              inset 0 0 15px ${item.color === 'red' 
+                                ? 'rgba(239, 68, 68, 0.08)' 
+                                : 'rgba(59, 130, 246, 0.08)'
+                              }
                             `
                           }}
                           whileHover={{ 
                             scale: 1.02,
                             boxShadow: `
-                              0 0 25px rgba(59, 130, 246, 0.25),
-                              inset 0 0 25px rgba(59, 130, 246, 0.15)
+                              0 0 25px ${item.color === 'red' 
+                                ? 'rgba(239, 68, 68, 0.25)' 
+                                : 'rgba(59, 130, 246, 0.25)'
+                              },
+                              inset 0 0 25px ${item.color === 'red' 
+                                ? 'rgba(239, 68, 68, 0.15)' 
+                                : 'rgba(59, 130, 246, 0.15)'
+                              }
                             `
                           }}
                         >
                           <h3 
-                            className="text-xs xs:text-sm font-semibold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-1"
+                            className={`text-sm xs:text-base font-semibold ${item.color === 'red' 
+                              ? 'bg-gradient-to-r from-red-400 to-red-300' 
+                              : 'bg-gradient-to-r from-blue-400 to-cyan-400'
+                            } bg-clip-text text-transparent mb-2`}
                             style={{
-                              filter: `drop-shadow(0 0 4px rgba(59, 130, 246, 0.4))`
+                              filter: `drop-shadow(0 0 4px ${item.color === 'red' 
+                                ? 'rgba(239, 68, 68, 0.4)' 
+                                : 'rgba(59, 130, 246, 0.4)'
+                              })`
                             }}
                           >
-                            {feature.title}
+                            {item.title}
                           </h3>
-                          <p className="text-xs text-gray-300">{feature.desc}</p>
+                          <p className="text-xs xs:text-sm text-gray-300">{item.desc}</p>
                         </motion.div>
                       ))}
                     </motion.div>
 
-                    {/* CTA Buttons */}
+                    {/* CTA Button */}
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.8, delay: 1.4 }}
-                      className="flex flex-col xs:flex-row gap-3 xs:gap-4"
                     >
-                      <button 
-                        className="px-6 xs:px-8 py-3 xs:py-4 rounded-lg text-sm xs:text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 transition-all duration-300 hover:scale-105 tracking-wide border border-blue-400/30"
-                        style={{
-                          boxShadow: `
-                            0 0 20px rgba(59, 130, 246, 0.4),
-                            0 0 40px rgba(59, 130, 246, 0.2),
-                            inset 0 0 20px rgba(59, 130, 246, 0.1)
-                          `,
-                          textShadow: `0 0 10px rgba(255, 255, 255, 0.3)`
-                        }}
-                      >
-                        Start Security Assessment
-                      </button>
-                      
-                      <Link href="/compare">
+                      <Link href="/platform">
                         <button 
-                          className="px-6 xs:px-8 py-3 xs:py-4 rounded-lg text-sm xs:text-base font-semibold text-white bg-transparent hover:bg-blue-600/20 transition-all duration-300 hover:scale-105 tracking-wide border-2 border-blue-400/60 hover:border-cyan-400"
+                          className="px-6 xs:px-8 py-3 xs:py-4 rounded-lg text-sm xs:text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 transition-all duration-300 hover:scale-105 tracking-wide border border-blue-400/30"
                           style={{
                             boxShadow: `
-                              0 0 15px rgba(59, 130, 246, 0.2),
-                              inset 0 0 15px rgba(59, 130, 246, 0.1)
+                              0 0 20px rgba(59, 130, 246, 0.4),
+                              0 0 40px rgba(59, 130, 246, 0.2),
+                              inset 0 0 20px rgba(59, 130, 246, 0.1)
                             `,
                             textShadow: `0 0 10px rgba(255, 255, 255, 0.3)`
                           }}
                         >
-                          Compare Solutions →
+                          Learn More About TotalCiso →
                         </button>
                       </Link>
                     </motion.div>
@@ -267,14 +273,14 @@ export function SecurityView() {
               </AnimatePresence>
             </div>
 
-            {/* Right Side - Transparent overlay for additional effects on image background */}
+            {/* Right Side - Image area with floating effects */}
             <div className="relative py-12">
-              {/* Floating particles over the image */}
+              {/* Network particles over the fiber image */}
               <div className="absolute inset-0">
-                {Array.from({ length: 12 }).map((_, i) => (
+                {Array.from({ length: 15 }).map((_, i) => (
                   <motion.div
                     key={i}
-                    className="absolute w-0.5 h-0.5 bg-blue-400 rounded-full opacity-60"
+                    className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-60"
                     style={{
                       left: `${10 + Math.random() * 80}%`,
                       top: `${10 + Math.random() * 80}%`,
@@ -282,10 +288,12 @@ export function SecurityView() {
                     }}
                     animate={{
                       opacity: [0.3, 0.8, 0.3],
-                      scale: [0.5, 1.5, 0.5]
+                      scale: [0.5, 1.5, 0.5],
+                      x: [0, Math.random() * 20 - 10, 0],
+                      y: [0, Math.random() * 20 - 10, 0]
                     }}
                     transition={{
-                      duration: 3 + Math.random() * 2,
+                      duration: 4 + Math.random() * 2,
                       repeat: Infinity,
                       ease: "easeInOut",
                       delay: Math.random() * 4
