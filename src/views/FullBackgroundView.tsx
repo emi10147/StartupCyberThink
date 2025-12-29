@@ -173,9 +173,9 @@ export function FullBackgroundView() {
                   className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16 max-w-5xl mx-auto"
                 >
                   {[
-                    { title: "AI-Powered Detection", desc: "Real-time threat analysis", icon: "🤖" },
-                    { title: "24/7 Monitoring", desc: "Continuous surveillance", icon: "👁️" },
-                    { title: "Risk Assessment", desc: "Comprehensive evaluation", icon: "📊" }
+                    { title: "AI-Powered Detection", desc: "Real-time threat analysis" },
+                    { title: "24/7 Monitoring", desc: "Continuous surveillance" },
+                    { title: "Risk Assessment", desc: "Comprehensive evaluation" }
                   ].map((feature, index) => (
                     <motion.div
                       key={index}
@@ -197,7 +197,6 @@ export function FullBackgroundView() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
                     >
-                      <div className="text-2xl sm:text-3xl mb-3 sm:mb-4">{feature.icon}</div>
                       <h3 
                         className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2 sm:mb-3"
                         style={{
