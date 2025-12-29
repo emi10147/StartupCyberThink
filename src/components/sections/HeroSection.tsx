@@ -16,73 +16,13 @@ export function HeroSection() {
 
   return (
     <div className="relative min-h-screen overflow-hidden" style={{ backgroundColor: '#000000' }}>
-      {/* Main Content - Coding Image Background with Text Overlay */}
+      {/* Main Content - Pure Black Background */}
       <div className="relative min-h-screen flex items-center justify-center">
         
-        {/* Large Background Image - Right Half on Desktop and Mobile */}
-        <div className="absolute inset-0 left-1/3 sm:left-1/2">
-          <div className="relative w-full h-full">
-            <Image
-              src="/hola.jpg"
-              alt="Cybersecurity Code Development"
-              fill
-              style={{ objectFit: 'cover' }}
-              className="opacity-85 md:opacity-95"
-              priority
-            />
-            
-            {/* Lighter overlay for better image visibility - desktop only */}
-            <div 
-              className="absolute inset-0 hidden sm:block"
-              style={{
-                background: `
-                  linear-gradient(180deg, 
-                    rgba(0, 0, 0, 0.75) 0%,
-                    rgba(0, 0, 0, 0.65) 20%,
-                    rgba(0, 0, 0, 0.55) 60%,
-                    rgba(0, 0, 0, 0.45) 100%
-                  )
-                `
-              }}
-            />
-            
-            {/* Gradient overlay for better text readability */}
-            <div 
-              className="absolute inset-0"
-              style={{
-                background: `
-                  linear-gradient(90deg, 
-                    rgba(0, 0, 0, 0.85) 0%,
-                    rgba(0, 0, 0, 0.65) 20%,
-                    rgba(0, 0, 0, 0.45) 60%,
-                    rgba(0, 0, 0, 0.2) 100%
-                  )
-                `
-              }}
-            />
-
-            {/* Blue glow overlay */}
-            <motion.div 
-              className="absolute inset-0 pointer-events-none"
-              animate={{
-                background: [
-                  'radial-gradient(ellipse at 60% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 80%)',
-                  'radial-gradient(ellipse at 60% 50%, rgba(59, 130, 246, 0.2) 0%, transparent 80%)',
-                  'radial-gradient(ellipse at 60% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 80%)'
-                ]
-              }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </div>
-        </div>
-
-        {/* Left Side - Pure Black Background */}
-        <div className="absolute inset-0 right-2/3 sm:right-1/2 bg-black" />
-        
-        {/* Subtle background effects for left side */}
-        <div className="absolute inset-0 right-2/3 sm:right-1/2">
+        {/* Subtle background effects */}
+        <div className="absolute inset-0">
           {/* Floating particles */}
-          {Array.from({ length: 8 }).map((_, i) => (
+          {Array.from({ length: 12 }).map((_, i) => (
             <motion.div
               key={i}
               className="absolute w-px h-px bg-blue-300 rounded-full opacity-30"
@@ -107,10 +47,10 @@ export function HeroSection() {
 
         {/* Content Container */}
         <div className="relative z-30 w-full max-w-7xl mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center min-h-screen">
+          <div className="flex flex-col items-center justify-center min-h-screen">
             
-            {/* Left Side - Content optimized for mobile */}
-            <div className="text-center lg:text-left lg:pr-8 py-8 sm:py-12 px-4 sm:px-6 lg:px-0">
+            {/* Centered Content */}
+            <div className="text-center py-8 sm:py-12 px-4 sm:px-6 lg:px-0">
               <AnimatePresence mode="wait">
                 {showContent && (
                   <>
@@ -213,7 +153,7 @@ export function HeroSection() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 2.0 }}
-                      className="flex justify-center lg:justify-start"
+                      className="flex justify-center"
                     >
                       <button
                         onClick={() => router.push('/platform')}
@@ -234,34 +174,6 @@ export function HeroSection() {
                   </>
                 )}
               </AnimatePresence>
-            </div>
-
-            {/* Right Side - Transparent overlay for additional effects on image background */}
-            <div className="relative py-12">
-              {/* Floating particles over the image */}
-              <div className="absolute inset-0">
-                {Array.from({ length: 12 }).map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute w-0.5 h-0.5 bg-blue-400 rounded-full opacity-60"
-                    style={{
-                      left: `${10 + Math.random() * 80}%`,
-                      top: `${10 + Math.random() * 80}%`,
-                      filter: 'blur(0.5px)'
-                    }}
-                    animate={{
-                      opacity: [0.3, 0.8, 0.3],
-                      scale: [0.5, 1.5, 0.5]
-                    }}
-                    transition={{
-                      duration: 3 + Math.random() * 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: Math.random() * 4
-                    }}
-                  />
-                ))}
-              </div>
             </div>
 
           </div>
