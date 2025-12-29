@@ -22,7 +22,7 @@ export function FullBackgroundView() {
           alt="Cybersecurity Overview"
           fill
           style={{ objectFit: 'cover' }}
-          className="opacity-90"
+          className="opacity-85"
           priority
         />
         
