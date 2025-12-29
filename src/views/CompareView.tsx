@@ -250,6 +250,7 @@ export function CompareView() {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.8, delay: 1.4 }}
+                      className="flex flex-col xs:flex-row gap-3 xs:gap-4"
                     >
                       <Link href="/platform">
                         <button 
@@ -263,7 +264,22 @@ export function CompareView() {
                             textShadow: `0 0 10px rgba(255, 255, 255, 0.3)`
                           }}
                         >
-                          Learn More About TotalCiso →
+                          Learn More About TotalCiso
+                        </button>
+                      </Link>
+                      
+                      <Link href="/overview">
+                        <button 
+                          className="px-6 xs:px-8 py-3 xs:py-4 rounded-lg text-sm xs:text-base font-semibold text-white bg-transparent hover:bg-blue-600/20 transition-all duration-300 hover:scale-105 tracking-wide border-2 border-blue-400/60 hover:border-cyan-400"
+                          style={{
+                            boxShadow: `
+                              0 0 15px rgba(59, 130, 246, 0.2),
+                              inset 0 0 15px rgba(59, 130, 246, 0.1)
+                            `,
+                            textShadow: `0 0 10px rgba(255, 255, 255, 0.3)`
+                          }}
+                        >
+                          View Overview →
                         </button>
                       </Link>
                     </motion.div>
