@@ -33,17 +33,7 @@ export const DesignToolHero = () => {
         </Link>
 
         {/* Professional Navigation Links */}
-        <div className="flex items-center gap-3 xs:gap-4 sm:gap-6 md:gap-8">
-          <button className="text-gray-300 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-400 hover:bg-clip-text hover:text-transparent cursor-pointer transition-all duration-300 text-xs xs:text-sm md:text-base font-medium tracking-wide hidden sm:block hover:scale-105">
-            Resources
-          </button>
-          <button className="text-gray-300 hover:bg-gradient-to-r hover:from-blue-400 hover:to-cyan-400 hover:bg-clip-text hover:text-transparent cursor-pointer transition-all duration-300 text-xs xs:text-sm md:text-base font-medium tracking-wide hidden sm:block hover:scale-105">
-            Login
-          </button>
-          <button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white px-4 xs:px-5 sm:px-6 md:px-8 py-2 xs:py-2.5 md:py-3 rounded-lg transition-all duration-300 text-xs xs:text-sm md:text-base font-semibold tracking-wide shadow-lg shadow-blue-500/40 hover:shadow-blue-400/60 hover:scale-105 border border-blue-400/30">
-            Sign Up
-          </button>
-        </div>
+        <div className="flex items-center gap-3 xs:gap-4 sm:gap-6 md:gap-8" />
       </motion.nav>
 
       {/* Main content centered with animated glow box */}
@@ -74,8 +64,8 @@ export const DesignToolHero = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.4, delay: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
-                TotalCiso
+              <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(59,130,246,0.45)]">
+                TotalCISO
               </span>
             </motion.h1>
           </motion.div>
@@ -95,7 +85,7 @@ export const DesignToolHero = () => {
             transition={{ duration: 0.8, delay: 2.0, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent">
-              Our Solution
+              Total CISO combines on demand CISO expertise with structured analysis.
             </span>
           </motion.h3>
 
@@ -105,15 +95,9 @@ export const DesignToolHero = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.0, delay: 2.3, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            An integrated model that combines{' '}
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent font-semibold">
-              artificial intelligence
-            </span>
-            , quantitative analytics, and risk management expertise to help organizations{' '}
-            <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-sky-300 bg-clip-text text-transparent font-semibold">
-              define, visualize, and manage
-            </span>
-            {' '}their cyber risk and risk appetite.
+            Total CISO combines on demand CISO expertise with a structured and objective risk analysis framework. The platform continuously evaluates security posture, compliance readiness, and threat exposure using consistent internal logic rather than purely subjective judgment.
+            <br /><br />
+            The system is built on secure databases and cloud based infrastructure designed to scale across organizations of different sizes and sectors. While the underlying analytical architecture is highly complex, the outcome for clients is simple and actionable. Lower risk. Fewer incidents. Faster response. More efficient audits.
           </motion.p>
 
           {/* Continue to Security Page Button */}

@@ -40,20 +40,7 @@ export function SecurityView() {
           </div>
         </Link>
 
-        {/* Navigation Links */}
-        <div className="flex items-center gap-3 xs:gap-4 sm:gap-6 md:gap-8">
-          <Link href="/">
-            <button className="text-gray-300 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-400 hover:bg-clip-text hover:text-transparent cursor-pointer transition-all duration-300 text-xs xs:text-sm md:text-base font-medium tracking-wide hidden sm:block hover:scale-105">
-              Home
-            </button>
-          </Link>
-          <button className="text-gray-300 hover:bg-gradient-to-r hover:from-blue-400 hover:to-cyan-400 hover:bg-clip-text hover:text-transparent cursor-pointer transition-all duration-300 text-xs xs:text-sm md:text-base font-medium tracking-wide hidden sm:block hover:scale-105">
-            Contact
-          </button>
-          <button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white px-4 xs:px-5 sm:px-6 md:px-8 py-2 xs:py-2.5 md:py-3 rounded-lg transition-all duration-300 text-xs xs:text-sm md:text-base font-semibold tracking-wide shadow-lg shadow-blue-500/40 hover:shadow-blue-400/60 hover:scale-105 border border-blue-400/30">
-            Get Started
-          </button>
-        </div>
+        <div className="flex items-center gap-3 xs:gap-4 sm:gap-6 md:gap-8" />
       </motion.nav>
 
       {/* Main Content - Image Background with Text Overlay */}
@@ -143,7 +130,7 @@ export function SecurityView() {
                             filter: `drop-shadow(0 0 8px rgba(59, 130, 246, 0.6))`
                           }}
                         >
-                          Advanced Cyber
+                          Designed for Clarity,
                         </span>
                         <br />
                         <span 
@@ -152,7 +139,7 @@ export function SecurityView() {
                             filter: `drop-shadow(0 0 8px rgba(34, 211, 238, 0.6))`
                           }}
                         >
-                          Security Platform
+                          Built for Complexity
                         </span>
                       </h1>
                     </motion.div>
@@ -170,16 +157,9 @@ export function SecurityView() {
                           textShadow: `0 0 8px rgba(156, 163, 175, 0.3)`
                         }}
                       >
-                        Protecting your digital infrastructure with{' '}
-                        <span 
-                          className="bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent font-semibold"
-                          style={{
-                            filter: `drop-shadow(0 0 6px rgba(34, 211, 238, 0.5))`
-                          }}
-                        >
-                          AI-powered threat detection
-                        </span>
-                        {' '}and real-time monitoring.
+                        Total CISO centralizes security oversight by integrating policy guidance, risk evaluation, and compliance monitoring into a single platform. Organizations gain continuous visibility into their security posture while receiving strategic direction aligned with business objectives.
+                        <br /><br />
+                        The complexity of the analysis remains within the system. Clients interact with clear insights, prioritized recommendations, and measurable progress without needing to manage technical details or mathematical models.
                       </p>
                     </motion.div>
 
@@ -190,10 +170,10 @@ export function SecurityView() {
                       transition={{ duration: 1.0, delay: 0.9 }}
                       className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-2 xs:gap-3 mb-6 sm:mb-8 lg:mb-10"
                     >
-                      {[
-                        { title: "Real-time", desc: "24/7 monitoring" },
-                        { title: "AI-Powered", desc: "Smart analytics" },
-                        { title: "Risk Analysis", desc: "Full assessment" }
+                      {[ 
+                        { title: "Policy Guidance", desc: "Consistent executive direction" },
+                        { title: "Risk Evaluation", desc: "Objective posture scoring" },
+                        { title: "Compliance Monitoring", desc: "Continuous readiness checks" }
                       ].map((feature, index) => (
                         <motion.div
                           key={index}
@@ -243,10 +223,10 @@ export function SecurityView() {
                           textShadow: `0 0 10px rgba(255, 255, 255, 0.3)`
                         }}
                       >
-                        Start Security Assessment
+                        Request Early Access
                       </button>
                       
-                      <Link href="/compare">
+                      <Link href="/platform">
                         <button 
                           className="px-6 xs:px-8 py-3 xs:py-4 rounded-lg text-sm xs:text-base font-semibold text-white bg-transparent hover:bg-blue-600/20 transition-all duration-300 hover:scale-105 tracking-wide border-2 border-blue-400/60 hover:border-cyan-400"
                           style={{
@@ -257,7 +237,7 @@ export function SecurityView() {
                             textShadow: `0 0 10px rgba(255, 255, 255, 0.3)`
                           }}
                         >
-                          Compare Solutions →
+                          Learn How It Works →
                         </button>
                       </Link>
                     </motion.div>

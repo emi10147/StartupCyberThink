@@ -87,7 +87,7 @@ export function FeaturesSection() {
               boxShadow: '0 8px 32px 0 rgba(0, 127, 255, 0.2), inset 0 0 20px rgba(0, 191, 255, 0.1)'
             }}>
               <div className="bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl p-8 text-white font-bold text-2xl">
-                <div className="animate-pulse">Sign up</div>
+                <div className="animate-pulse">See it in action</div>
                 <div className="text-sm font-normal mt-2 opacity-70">
                   Interactive WebGL Element Demo
                 </div>

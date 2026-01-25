@@ -40,22 +40,7 @@ export function CompareView() {
           </div>
         </Link>
 
-        {/* Navigation Links */}
-        <div className="flex items-center gap-3 xs:gap-4 sm:gap-6 md:gap-8">
-          <Link href="/">
-            <button className="text-gray-300 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-400 hover:bg-clip-text hover:text-transparent cursor-pointer transition-all duration-300 text-xs xs:text-sm md:text-base font-medium tracking-wide hidden sm:block hover:scale-105">
-              Home
-            </button>
-          </Link>
-          <Link href="/platform">
-            <button className="text-gray-300 hover:bg-gradient-to-r hover:from-blue-400 hover:to-cyan-400 hover:bg-clip-text hover:text-transparent cursor-pointer transition-all duration-300 text-xs xs:text-sm md:text-base font-medium tracking-wide hidden sm:block hover:scale-105">
-              Platform
-            </button>
-          </Link>
-          <button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white px-4 xs:px-5 sm:px-6 md:px-8 py-2 xs:py-2.5 md:py-3 rounded-lg transition-all duration-300 text-xs xs:text-sm md:text-base font-semibold tracking-wide shadow-lg shadow-blue-500/40 hover:shadow-blue-400/60 hover:scale-105 border border-blue-400/30">
-            Contact Us
-          </button>
-        </div>
+        <div className="flex items-center gap-3 xs:gap-4 sm:gap-6 md:gap-8" />
       </motion.nav>
 
       {/* Main Content - Fiber Optic Background with Text Overlay */}
@@ -143,7 +128,7 @@ export function CompareView() {
                             filter: `drop-shadow(0 0 8px rgba(59, 130, 246, 0.6))`
                           }}
                         >
-                          Network Security
+                          Built to Scale Across
                         </span>
                         <br />
                         <span 
@@ -152,7 +137,7 @@ export function CompareView() {
                             filter: `drop-shadow(0 0 8px rgba(34, 211, 238, 0.6))`
                           }}
                         >
-                          Comparison
+                          Industries and Governments
                         </span>
                       </h1>
                     </motion.div>
@@ -170,16 +155,7 @@ export function CompareView() {
                           textShadow: `0 0 8px rgba(156, 163, 175, 0.3)`
                         }}
                       >
-                        Compare traditional security solutions with{' '}
-                        <span 
-                          className="bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent font-semibold"
-                          style={{
-                            filter: `drop-shadow(0 0 6px rgba(34, 211, 238, 0.5))`
-                          }}
-                        >
-                          TotalCiso's advanced fiber-optic speed
-                        </span>
-                        {' '}network protection and monitoring capabilities.
+                        Cybersecurity risk is not limited to private companies. Government institutions face similar challenges involving fragmented assessments, high compliance costs, and limited executive oversight. Total CISO is designed to scale across enterprises, public sector organizations, and regulatory environments, adapting to different risk profiles and governance structures.
                       </p>
                     </motion.div>
 
@@ -191,51 +167,30 @@ export function CompareView() {
                       className="grid grid-cols-1 xs:grid-cols-2 gap-3 xs:gap-4 mb-6 sm:mb-8 lg:mb-10"
                     >
                       {[
-                        { title: "Traditional", desc: "Slow response times", color: "red" },
-                        { title: "TotalCiso", desc: "Fiber-speed detection", color: "blue" }
+                        { title: "Enterprises", desc: "Consistent governance across business units", color: "blue" },
+                        { title: "Public Sector", desc: "Adaptable to regulatory environments", color: "blue" }
                       ].map((item, index) => (
                         <motion.div
                           key={index}
-                          className={`bg-gradient-to-br ${item.color === 'red' 
-                            ? 'from-red-900/30 to-red-800/30 border-red-500/40' 
-                            : 'from-blue-900/30 to-cyan-900/30 border-blue-500/40'
-                          } backdrop-blur-sm border rounded-lg p-4 hover:border-opacity-60 transition-all duration-300`}
+                          className={`bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border-blue-500/40 backdrop-blur-sm border rounded-lg p-4 hover:border-opacity-60 transition-all duration-300`}
                           style={{
                             boxShadow: `
-                              0 0 15px ${item.color === 'red' 
-                                ? 'rgba(239, 68, 68, 0.15)' 
-                                : 'rgba(59, 130, 246, 0.15)'
-                              },
-                              inset 0 0 15px ${item.color === 'red' 
-                                ? 'rgba(239, 68, 68, 0.08)' 
-                                : 'rgba(59, 130, 246, 0.08)'
-                              }
+                              0 0 15px rgba(59, 130, 246, 0.15),
+                              inset 0 0 15px rgba(59, 130, 246, 0.08)
                             `
                           }}
                           whileHover={{ 
                             scale: 1.02,
                             boxShadow: `
-                              0 0 25px ${item.color === 'red' 
-                                ? 'rgba(239, 68, 68, 0.25)' 
-                                : 'rgba(59, 130, 246, 0.25)'
-                              },
-                              inset 0 0 25px ${item.color === 'red' 
-                                ? 'rgba(239, 68, 68, 0.15)' 
-                                : 'rgba(59, 130, 246, 0.15)'
-                              }
+                              0 0 25px rgba(59, 130, 246, 0.25),
+                              inset 0 0 25px rgba(59, 130, 246, 0.15)
                             `
                           }}
                         >
                           <h3 
-                            className={`text-sm xs:text-base font-semibold ${item.color === 'red' 
-                              ? 'bg-gradient-to-r from-red-400 to-red-300' 
-                              : 'bg-gradient-to-r from-blue-400 to-cyan-400'
-                            } bg-clip-text text-transparent mb-2`}
+                            className="text-sm xs:text-base font-semibold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2"
                             style={{
-                              filter: `drop-shadow(0 0 4px ${item.color === 'red' 
-                                ? 'rgba(239, 68, 68, 0.4)' 
-                                : 'rgba(59, 130, 246, 0.4)'
-                              })`
+                              filter: `drop-shadow(0 0 4px rgba(59, 130, 246, 0.4))`
                             }}
                           >
                             {item.title}
@@ -245,43 +200,19 @@ export function CompareView() {
                       ))}
                     </motion.div>
 
-                    {/* CTA Button */}
+                    <div className="h-4" />
+
                     <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8, delay: 1.4 }}
-                      className="flex flex-col xs:flex-row gap-3 xs:gap-4"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 1.6 }}
+                      className="mt-8 text-left bg-white/5 border border-blue-500/30 rounded-lg p-4 sm:p-6 md:p-7 backdrop-blur"
                     >
-                      <Link href="/platform">
-                        <button 
-                          className="px-6 xs:px-8 py-3 xs:py-4 rounded-lg text-sm xs:text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 transition-all duration-300 hover:scale-105 tracking-wide border border-blue-400/30"
-                          style={{
-                            boxShadow: `
-                              0 0 20px rgba(59, 130, 246, 0.4),
-                              0 0 40px rgba(59, 130, 246, 0.2),
-                              inset 0 0 20px rgba(59, 130, 246, 0.1)
-                            `,
-                            textShadow: `0 0 10px rgba(255, 255, 255, 0.3)`
-                          }}
-                        >
-                          Learn More About TotalCiso
-                        </button>
-                      </Link>
-                      
-                      <Link href="/overview">
-                        <button 
-                          className="px-6 xs:px-8 py-3 xs:py-4 rounded-lg text-sm xs:text-base font-semibold text-white bg-transparent hover:bg-blue-600/20 transition-all duration-300 hover:scale-105 tracking-wide border-2 border-blue-400/60 hover:border-cyan-400"
-                          style={{
-                            boxShadow: `
-                              0 0 15px rgba(59, 130, 246, 0.2),
-                              inset 0 0 15px rgba(59, 130, 246, 0.1)
-                            `,
-                            textShadow: `0 0 10px rgba(255, 255, 255, 0.3)`
-                          }}
-                        >
-                          View Overview →
-                        </button>
-                      </Link>
+                      <h3 className="text-lg sm:text-xl font-semibold text-white mb-3">Grounded in Real World Experience</h3>
+                      <p className="text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed">
+                        Total CISO is inspired by real world experience in corporate risk management and cybersecurity. The platform was developed with guidance from industry professionals, including Javier García, ROT Corporate Risk Manager, and Néstor Duque, Master in Cybersecurity and Ethical Hacking. Their experience informs a solution focused on accuracy, accountability, and long term resilience.
+                      </p>
+                      <div className="text-gray-400 text-xs sm:text-sm mt-3">© 2026 Total CISO · Security leadership built on objectivity, structure, and trust.</div>
                     </motion.div>
 
                   </>

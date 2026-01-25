@@ -15,30 +15,27 @@ export function FullBackgroundView() {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Full Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/tardes.jpg"
-          alt="Cybersecurity Overview"
-          fill
-          style={{ objectFit: 'cover' }}
-          className="opacity-85"
-          priority
-        />
-        
-        {/* Dark overlay for text readability */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: `
-              linear-gradient(180deg, 
-                rgba(0, 0, 0, 0.7) 0%,
-                rgba(0, 0, 0, 0.5) 50%,
-                rgba(0, 0, 0, 0.7) 100%
-              )
-            `
-          }}
-        />
+      {/* Split layout background: image left half, clean text space right */}
+      <div className="absolute inset-0 grid grid-cols-1 lg:grid-cols-2">
+        <div className="relative h-[50vh] lg:h-auto lg:min-h-screen">
+          <Image
+            src="/tardes.jpg"
+            alt="Cybersecurity Overview"
+            fill
+            style={{ objectFit: 'cover' }}
+            className="opacity-90"
+            priority
+          />
+          <div 
+            className="absolute inset-0"
+            style={{
+              background: `
+                linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.1) 100%)
+              `
+            }}
+          />
+        </div>
+        <div className="hidden lg:block bg-black/85" />
       </div>
 
       {/* Professional Navigation */}
@@ -77,15 +74,12 @@ export function FullBackgroundView() {
               Platform
             </button>
           </Link>
-          <button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white px-4 xs:px-5 sm:px-6 md:px-8 py-2 xs:py-2.5 md:py-3 rounded-lg transition-all duration-300 text-xs xs:text-sm md:text-base font-semibold tracking-wide shadow-lg shadow-blue-500/40 hover:shadow-blue-400/60 hover:scale-105 border border-blue-400/30">
-            Get Demo
-          </button>
         </div>
       </motion.nav>
 
-      {/* Main Content Centered */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen">
-        <div className="w-full max-w-6xl mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 text-center">
+      {/* Main Content shifted to text side */}
+      <div className="relative z-10 flex items-center justify-center lg:justify-end min-h-screen">
+        <div className="w-full max-w-6xl lg:max-w-3xl mx-auto lg:mr-16 px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 text-center lg:text-left">
           
           <AnimatePresence mode="wait">
             {showContent && (
@@ -113,7 +107,7 @@ export function FullBackgroundView() {
                         filter: `drop-shadow(0 0 12px rgba(59, 130, 246, 0.8))`
                       }}
                     >
-                      Cybersecurity
+                      The Cost of Subjective
                     </span>
                     <br />
                     <span 
@@ -122,7 +116,7 @@ export function FullBackgroundView() {
                         filter: `drop-shadow(0 0 12px rgba(34, 211, 238, 0.8))`
                       }}
                     >
-                      Overview
+                      Security Decisions
                     </span>
                   </h1>
                 </motion.div>
@@ -135,7 +129,7 @@ export function FullBackgroundView() {
                   className="mb-8 sm:mb-12 md:mb-16"
                 >
                   <p 
-                    className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl text-white leading-relaxed font-light tracking-wide max-w-4xl mx-auto"
+                    className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl text-white leading-relaxed font-light tracking-wide max-w-5xl mx-auto lg:mx-0"
                     style={{
                       textShadow: `
                         0 0 10px rgba(255, 255, 255, 0.3),
@@ -143,71 +137,10 @@ export function FullBackgroundView() {
                       `
                     }}
                   >
-                    Experience the complete{' '}
-                    <span 
-                      className="bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent font-semibold"
-                      style={{
-                        filter: `drop-shadow(0 0 8px rgba(34, 211, 238, 0.6))`
-                      }}
-                    >
-                      TotalCiso ecosystem
-                    </span>
-                    {' '}designed to protect, monitor, and secure your digital infrastructure with{' '}
-                    <span 
-                      className="bg-gradient-to-r from-blue-400 via-cyan-400 to-sky-300 bg-clip-text text-transparent font-semibold"
-                      style={{
-                        filter: `drop-shadow(0 0 8px rgba(59, 130, 246, 0.6))`
-                      }}
-                    >
-                      advanced AI capabilities
-                    </span>
-                    .
+                    Organizations today rely on fragmented tools, incomplete data, and subjective criteria to assess cybersecurity risk. This often leads to misclassified incidents, delayed responses, and ineffective controls. The consequences can be severe, including operational disruption, regulatory exposure, reputational damage, and financial losses that reach millions of dollars.
+                    <br /><br />
+                    At the same time, regulatory compliance has become increasingly complex and expensive. Repeated audits and evolving standards place a heavy burden on organizations that lack dedicated security leadership. For many small and mid sized companies, hiring a full time CISO is simply not feasible.
                   </p>
-                </motion.div>
-
-                {/* Feature Highlights Grid */}
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.0, delay: 0.9 }}
-                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16 max-w-5xl mx-auto"
-                >
-                  {[
-                    { title: "AI-Powered Detection", desc: "Real-time threat analysis" },
-                    { title: "24/7 Monitoring", desc: "Continuous surveillance" },
-                    { title: "Risk Assessment", desc: "Comprehensive evaluation" }
-                  ].map((feature, index) => (
-                    <motion.div
-                      key={index}
-                      className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 backdrop-blur-md border border-blue-500/50 rounded-xl p-6 sm:p-8 hover:border-blue-400/70 transition-all duration-300"
-                      style={{
-                        boxShadow: `
-                          0 0 25px rgba(59, 130, 246, 0.2),
-                          inset 0 0 25px rgba(59, 130, 246, 0.1)
-                        `
-                      }}
-                      whileHover={{ 
-                        scale: 1.03,
-                        boxShadow: `
-                          0 0 35px rgba(59, 130, 246, 0.3),
-                          inset 0 0 35px rgba(59, 130, 246, 0.15)
-                        `
-                      }}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
-                    >
-                      <h3 
-                        className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2 sm:mb-3"
-                        style={{
-                          filter: `drop-shadow(0 0 6px rgba(59, 130, 246, 0.5))`
-                        }}
-                      >
-                        {feature.title}
-                      </h3>
-                      <p className="text-sm sm:text-base text-gray-200">{feature.desc}</p>
-                    </motion.div>
-                  ))}
                 </motion.div>
 
                 {/* CTA Buttons */}
@@ -215,7 +148,7 @@ export function FullBackgroundView() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.6 }}
-                  className="flex flex-col xs:flex-row gap-4 xs:gap-6 justify-center"
+                  className="flex flex-col xs:flex-row gap-4 xs:gap-6 justify-center lg:justify-start"
                 >
                   <Link href="/platform">
                     <button 
