@@ -93,6 +93,7 @@ export function HeroSection() {
         <div className="relative z-30 w-full max-w-7xl mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12">
           <div className="flex flex-col items-center lg:items-start justify-center min-h-screen">
             <div className="w-full max-w-5xl text-center lg:text-left py-8 sm:py-12 px-4 sm:px-6 lg:px-0">
+              
               <AnimatePresence mode="wait">
                 {showContent && (
                   <>
