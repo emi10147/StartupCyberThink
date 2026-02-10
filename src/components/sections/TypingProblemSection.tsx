@@ -81,16 +81,19 @@ Without clarity, strategy, and precision, defenses remain vulnerable and investm
               whiteSpace: 'pre-wrap'
             }}
           >
-            {displayedText}
-            {!isComplete && (
-              <motion.span
-                animate={{ opacity: [1, 0] }}
-                transition={{ duration: 0.8, repeat: Infinity }}
-                className="text-cyan-300 ml-1"
-              >
-                |
-              </motion.span>
-            )}
+            <span style={{ display: 'inline' }}>
+              {displayedText}
+              {!isComplete && (
+                <motion.span
+                  animate={{ opacity: [1, 0] }}
+                  transition={{ duration: 0.8, repeat: Infinity }}
+                  className="text-cyan-300"
+                  style={{ display: 'inline-block', marginLeft: '2px' }}
+                >
+                  |
+                </motion.span>
+              )}
+            </span>
           </div>
           
           {isComplete && (

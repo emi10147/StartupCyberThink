@@ -24,7 +24,7 @@ export function HomeView() {
   }
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden bg-[#01030a] text-white">
+    <div className="relative w-full min-h-screen overflow-hidden bg-black text-white">
       {showIntro && (
         <div className="preloader-stage">
           <div className="intro-typing preloader-text font-mono">TotalCISO</div>
@@ -49,13 +49,16 @@ export function HomeView() {
 
       {showHero && (
         <>
-          {/* Static layered gradients for stability */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#041029] via-[#060b1a] to-[#0c0f1f]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/8 via-transparent to-purple-900/14 mix-blend-screen" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.12),transparent_35%),radial-gradient(circle_at_80%_15%,rgba(139,92,246,0.1),transparent_32%),radial-gradient(circle_at_50%_75%,rgba(6,182,212,0.1),transparent_38%)]" />
-          <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(59,130,246,0.08), transparent 45%)', mixBlendMode: 'screen' }} />
-
-          {/* Particles removed for stability */}
+          {/* Pure black background matching transformation page */}
+          <div className="absolute inset-0 bg-black" />
+          {/* Subtle cyan/blue glow overlay matching transformation page */}
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+            <div className="h-[460px] w-[460px] sm:h-[560px] sm:w-[560px] rounded-full bg-gradient-to-r from-cyan-400/10 via-indigo-500/10 to-transparent blur-3xl" />
+          </div>
+          <div className="pointer-events-none absolute -left-24 -top-20 h-64 w-64 rounded-full bg-cyan-500/12 blur-3xl" />
+          <div className="pointer-events-none absolute -right-20 bottom-0 h-60 w-60 rounded-full bg-indigo-500/12 blur-3xl" />
+          {/* Faint grid overlay */}
+          <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.08) 1px, transparent 0)', backgroundSize: '52px 52px', mixBlendMode: 'screen' }} />
 
           <main className="relative z-30 w-full opacity-100">
             <HeroSection />

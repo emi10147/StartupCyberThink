@@ -17,50 +17,40 @@ export function HeroSection() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-black">
-      {/* Animated galaxy backdrops */}
-      <div className="pointer-events-none absolute inset-0" style={{ zIndex: -2 }}>
-        <BlackGalaxyBackground />
-      </div>
+      {/* Pure black background matching intro and silent crisis pages */}
+      <div className="absolute inset-0 bg-black" style={{ zIndex: -3 }} />
 
-      {/* Layered aurora gradients for richer depth */}
-      <div className="pointer-events-none absolute inset-0" style={{ zIndex: -2.5 as unknown as number }}>
-        <div className="aurora-band" />
-        <div className="aurora-band two" />
-        <div className="nebula-veil" />
+      {/* Faint grid overlay */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          zIndex: -2.5,
+          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.08) 1px, transparent 0)',
+          backgroundSize: '52px 52px',
+          mixBlendMode: 'screen'
+        }}
+      />
+
+      {/* Subtle glow orbs */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center" style={{ zIndex: -2.4 }}>
+        <div className="h-[460px] w-[460px] sm:h-[560px] sm:w-[560px] rounded-full bg-gradient-to-r from-cyan-400/10 via-indigo-500/10 to-transparent blur-3xl" />
       </div>
+      <div className="pointer-events-none absolute -left-24 -top-20 h-64 w-64 rounded-full bg-cyan-500/12 blur-3xl" style={{ zIndex: -2.3 }} />
+      <div className="pointer-events-none absolute -right-20 bottom-0 h-60 w-60 rounded-full bg-indigo-500/12 blur-3xl" style={{ zIndex: -2.2 }} />
 
       {/* Right-half world image blended into the background */}
       <div className="absolute inset-0 overflow-hidden" style={{ zIndex: -1 }}>
-        <div className="absolute inset-y-0 right-0 w-full md:w-1/2 lg:w-[55%] relative">
+        <div className="absolute inset-y-0 right-0 w-full md:w-1/2 lg:w-[55%] relative opacity-30">
           <Image
             src="/world.jpg"
             alt="Global cybersecurity network visualization"
             fill
             priority
             sizes="(min-width: 1024px) 55vw, (min-width: 768px) 50vw, 100vw"
-            className="object-cover object-center brightness-[1.8] contrast-[1.35] saturate-[1.2] opacity-100"
+            className="object-cover object-center brightness-[1.8] contrast-[1.35] saturate-[1.2]"
           />
         </div>
-        <div className="absolute right-6 bottom-10 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
       </div>
-
-      {/* Light veil for text legibility without hiding the animation */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-transparent" />
-
-      {/* Faint grid and center glow to accent depth */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.08) 1px, transparent 0)',
-          backgroundSize: '52px 52px',
-          mixBlendMode: 'screen'
-        }}
-      />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <div className="h-[460px] w-[460px] sm:h-[560px] sm:w-[560px] rounded-full bg-gradient-to-r from-cyan-400/10 via-indigo-500/10 to-transparent blur-3xl" />
-      </div>
-      <div className="pointer-events-none absolute -left-24 -top-20 h-64 w-64 rounded-full bg-cyan-500/12 blur-3xl" />
-      <div className="pointer-events-none absolute -right-20 bottom-0 h-60 w-60 rounded-full bg-indigo-500/12 blur-3xl" />
 
       {/* Main Content */}
       <div className="relative min-h-screen flex items-center justify-center">
@@ -112,21 +102,11 @@ export function HeroSection() {
                           <h1
                             className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tight leading-tight"
                             style={{
-                              textShadow: `
-                                0 0 14px rgba(30, 70, 160, 0.55),
-                                0 0 28px rgba(36, 82, 190, 0.38),
-                                0 0 62px rgba(24, 58, 150, 0.32)
-                              `
+                              color: '#5BC0DE',
+                              textShadow: `0 0 20px rgba(91, 192, 222, 0.4), 0 0 40px rgba(91, 192, 222, 0.2)`
                             }}
                           >
-                            <span
-                              className="bg-gradient-to-r from-[#3f6ad6] via-[#2f55c7] to-[#1e7ccf] bg-clip-text text-transparent"
-                              style={{
-                                filter: `drop-shadow(0 0 12px rgba(48, 104, 210, 0.65))`
-                              }}
-                            >
-                              Security Leadership Built on Precision
-                            </span>
+                            Security Leadership Built on Precision
                           </h1>
                         </motion.div>
 
@@ -135,7 +115,7 @@ export function HeroSection() {
                           initial={{ opacity: 0, y: 12 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 1.0, delay: 1.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-                          style={{ textShadow: `0 0 8px rgba(156, 163, 175, 0.3)` }}
+                          style={{ textShadow: `0 0 20px rgba(6, 182, 212, 0.4), 0 0 40px rgba(59, 130, 246, 0.2)` }}
                         >
                           Total CISO provides CISO as a Service supported by a mathematically driven risk analysis framework to help organizations reduce cyber risk, prevent costly incidents, and simplify compliance.
                         </motion.p>
@@ -164,6 +144,12 @@ export function HeroSection() {
                       transition={{ duration: 0.85, delay: 1.55 }}
                       className="mt-2 flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4"
                     >
+                      <button
+                        onClick={() => router.push('/transformation')}
+                        className="px-4 py-2 rounded-md text-xs sm:text-sm font-semibold text-cyan-100 bg-white/5 border border-cyan-400/30 hover:bg-white/10 hover:border-cyan-300/60 transition-all duration-200"
+                      >
+                        The Transformation
+                      </button>
                       <button
                         onClick={() => router.push('/platform')}
                         className="px-4 py-2 rounded-md text-xs sm:text-sm font-semibold text-cyan-100 bg-white/5 border border-cyan-400/30 hover:bg-white/10 hover:border-cyan-300/60 transition-all duration-200"
