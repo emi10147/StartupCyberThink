@@ -5,23 +5,35 @@ import { motion } from 'framer-motion'
 
 export function DataTransformationAnimation() {
   const [stage, setStage] = useState<'spark' | 'moving' | 'expanded'>('spark')
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    // Stage 1: Spark appears (0-2.5s)
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  useEffect(() => {
+    // Shorter timings on mobile
+    const delay1 = isMobile ? 2000 : 2500
+    const delay2 = isMobile ? 5400 : 6500
+
+    // Stage 1: Spark appears
     const stage1Timer = setTimeout(() => {
       setStage('moving')
-    }, 2500)
+    }, delay1)
 
-    // Stage 2: Move to center and expand (2.5s onwards)
+    // Stage 2: Move to center and expand
     const stage2Timer = setTimeout(() => {
       setStage('expanded')
-    }, 6500)
+    }, delay2)
 
     return () => {
       clearTimeout(stage1Timer)
       clearTimeout(stage2Timer)
     }
-  }, [])
+  }, [isMobile])
 
   return (
     <div className="relative w-full min-h-[200vh] bg-black overflow-x-hidden flex flex-col">
@@ -30,12 +42,18 @@ export function DataTransformationAnimation() {
         {/* Black background */}
         <div className="absolute inset-0 bg-black" />
 
-      {/* Subtle glow orbs */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <div className="h-[460px] w-[460px] sm:h-[560px] sm:w-[560px] rounded-full bg-gradient-to-r from-cyan-400/10 via-indigo-500/10 to-transparent blur-3xl" />
-      </div>
-      <div className="pointer-events-none absolute -left-24 -top-20 h-64 w-64 rounded-full bg-cyan-500/12 blur-3xl" />
-      <div className="pointer-events-none absolute -right-20 bottom-0 h-60 w-60 rounded-full bg-indigo-500/12 blur-3xl" />
+      {/* Subtle glow orbs - disabled on mobile */}
+      {!isMobile && (
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <div className="h-[460px] w-[460px] sm:h-[560px] sm:w-[560px] rounded-full bg-gradient-to-r from-cyan-400/10 via-indigo-500/10 to-transparent blur-3xl" />
+        </div>
+      )}
+      {!isMobile && (
+        <div className="pointer-events-none absolute -left-24 -top-20 h-64 w-64 rounded-full bg-cyan-500/12 blur-3xl" />
+      )}
+      {!isMobile && (
+        <div className="pointer-events-none absolute -right-20 bottom-0 h-60 w-60 rounded-full bg-indigo-500/12 blur-3xl" />
+      )}
 
       {/* Faint grid overlay */}
       <div
@@ -51,17 +69,17 @@ export function DataTransformationAnimation() {
       <motion.div
         initial={{ opacity: 0, x: -300, y: 80, scale: 0, rotate: 0 }}
         animate={
-          stage === 'spark'
-            ? { opacity: 1, scale: 1, rotate: 0 }
-            : stage === 'moving'
+          stage === 'moving'
             ? { opacity: 1, x: 0, y: 0, scale: 1, rotate: 360 }
-            : { opacity: 0, scale: 0, rotate: 360 }
+            : stage === 'expanded'
+            ? { opacity: 0, scale: 0, rotate: 360 }
+            : { opacity: 1, scale: 1, rotate: 0 }
         }
         transition={{
-          duration: stage === 'spark' ? 2.2 : stage === 'moving' ? 3.2 : 0.9,
+          duration: stage === 'spark' ? 2.2 : stage === 'moving' ? (isMobile ? 2.6 : 3.2) : 0.9,
           ease: stage === 'moving' ? [0.42, 0, 0.58, 1] : [0.34, 1.56, 0.64, 1],
           rotate: {
-            duration: stage === 'moving' ? 3.2 : 0,
+            duration: stage === 'moving' ? (isMobile ? 2.6 : 3.2) : 0,
             repeat: stage === 'moving' ? Infinity : 0,
             ease: 'linear'
           }
@@ -209,8 +227,8 @@ export function DataTransformationAnimation() {
         </div>
       </motion.div>
 
-      {/* Particle trail effect during movement */}
-      {stage === 'moving' &&
+      {/* Particle trail effect during movement - skip on mobile */}
+      {stage === 'moving' && !isMobile &&
         Array.from({ length: 8 }).map((_, i) => (
           <motion.div
             key={i}
@@ -284,21 +302,24 @@ export function DataTransformationAnimation() {
           viewBox="0 0 500 500"
           className="absolute z-10 w-96 h-96 md:w-[600px] md:h-[600px]"
           style={{
-            filter: 'drop-shadow(0 0 40px rgba(6, 182, 212, 0.5))'
+            filter: !isMobile ? 'drop-shadow(0 0 40px rgba(6, 182, 212, 0.5))' : 'drop-shadow(0 0 15px rgba(6, 182, 212, 0.3))',
+            willChange: 'opacity, transform'
           }}
         >
           {/* Tree connections with enhanced glow */}
           <defs>
-            <filter id="glowLine">
-              <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-              <feMerge>
-                <feMergeNode in="coloredBlur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
+            {!isMobile && (
+              <filter id="glowLine">
+                <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                <feMerge>
+                  <feMergeNode in="coloredBlur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            )}
           </defs>
 
-          <g stroke="rgba(6, 182, 212, 0.5)" strokeWidth="1.5" fill="none" strokeLinecap="round" filter="url(#glowLine)">
+          <g stroke="rgba(6, 182, 212, 0.5)" strokeWidth="1.5" fill="none" strokeLinecap="round" filter={!isMobile ? "url(#glowLine)" : "none"}>
             {/* Main branches - expanded further out */}
             <motion.line
               x1="250"
@@ -307,7 +328,7 @@ export function DataTransformationAnimation() {
               y2="80"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 1.3, delay: 0.1, ease: [0.43, 0.13, 0.23, 0.96] }}
+              transition={{ duration: isMobile ? 0.9 : 1.3, delay: 0.1, ease: [0.43, 0.13, 0.23, 0.96] }}
               strokeDasharray="1"
             />
             <motion.line
@@ -317,7 +338,7 @@ export function DataTransformationAnimation() {
               y2="80"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 1.3, delay: 0.12, ease: [0.43, 0.13, 0.23, 0.96] }}
+              transition={{ duration: isMobile ? 0.9 : 1.3, delay: 0.12, ease: [0.43, 0.13, 0.23, 0.96] }}
               strokeDasharray="1"
             />
             <motion.line
@@ -327,7 +348,7 @@ export function DataTransformationAnimation() {
               y2="180"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 1.3, delay: 0.14, ease: [0.43, 0.13, 0.23, 0.96] }}
+              transition={{ duration: isMobile ? 0.9 : 1.3, delay: 0.14, ease: [0.43, 0.13, 0.23, 0.96] }}
               strokeDasharray="1"
             />
             <motion.line
@@ -337,7 +358,7 @@ export function DataTransformationAnimation() {
               y2="180"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 1.3, delay: 0.16, ease: [0.43, 0.13, 0.23, 0.96] }}
+              transition={{ duration: isMobile ? 0.9 : 1.3, delay: 0.16, ease: [0.43, 0.13, 0.23, 0.96] }}
               strokeDasharray="1"
             />
             <motion.line
@@ -347,7 +368,7 @@ export function DataTransformationAnimation() {
               y2="420"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 1.3, delay: 0.18, ease: [0.43, 0.13, 0.23, 0.96] }}
+              transition={{ duration: isMobile ? 0.9 : 1.3, delay: 0.18, ease: [0.43, 0.13, 0.23, 0.96] }}
               strokeDasharray="1"
             />
             <motion.line
@@ -357,7 +378,7 @@ export function DataTransformationAnimation() {
               y2="420"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 1.3, delay: 0.2, ease: [0.43, 0.13, 0.23, 0.96] }}
+              transition={{ duration: isMobile ? 0.9 : 1.3, delay: 0.2, ease: [0.43, 0.13, 0.23, 0.96] }}
               strokeDasharray="1"
             />
 
@@ -369,7 +390,7 @@ export function DataTransformationAnimation() {
               y2="20"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 0.85, delay: 1.1, ease: [0.43, 0.13, 0.23, 0.96] }}
+              transition={{ duration: isMobile ? 0.6 : 0.85, delay: isMobile ? 1.0 : 1.1, ease: [0.43, 0.13, 0.23, 0.96] }}
               strokeDasharray="1"
             />
             <motion.line
@@ -379,7 +400,7 @@ export function DataTransformationAnimation() {
               y2="20"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 0.85, delay: 1.12, ease: [0.43, 0.13, 0.23, 0.96] }}
+              transition={{ duration: isMobile ? 0.6 : 0.85, delay: isMobile ? 1.02 : 1.12, ease: [0.43, 0.13, 0.23, 0.96] }}
               strokeDasharray="1"
             />
             <motion.line
@@ -389,7 +410,7 @@ export function DataTransformationAnimation() {
               y2="20"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 0.85, delay: 1.14, ease: [0.43, 0.13, 0.23, 0.96] }}
+              transition={{ duration: isMobile ? 0.6 : 0.85, delay: isMobile ? 1.04 : 1.14, ease: [0.43, 0.13, 0.23, 0.96] }}
               strokeDasharray="1"
             />
             <motion.line
@@ -399,7 +420,7 @@ export function DataTransformationAnimation() {
               y2="20"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 0.85, delay: 1.16, ease: [0.43, 0.13, 0.23, 0.96] }}
+              transition={{ duration: isMobile ? 0.6 : 0.85, delay: isMobile ? 1.06 : 1.16, ease: [0.43, 0.13, 0.23, 0.96] }}
               strokeDasharray="1"
             />
             <motion.line
@@ -409,7 +430,7 @@ export function DataTransformationAnimation() {
               y2="120"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 0.85, delay: 1.18, ease: [0.43, 0.13, 0.23, 0.96] }}
+              transition={{ duration: isMobile ? 0.6 : 0.85, delay: isMobile ? 1.08 : 1.18, ease: [0.43, 0.13, 0.23, 0.96] }}
               strokeDasharray="1"
             />
             <motion.line
@@ -419,7 +440,7 @@ export function DataTransformationAnimation() {
               y2="120"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 0.85, delay: 1.2, ease: [0.43, 0.13, 0.23, 0.96] }}
+              transition={{ duration: isMobile ? 0.6 : 0.85, delay: isMobile ? 1.1 : 1.2, ease: [0.43, 0.13, 0.23, 0.96] }}
               strokeDasharray="1"
             />
           </g>
@@ -505,7 +526,7 @@ export function DataTransformationAnimation() {
                   clipPath="url(#iconCircle1)"
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
+                  transition={{ duration: 0.8, delay: isMobile ? 0.6 : 0.8 }}
                 />
 
                 {/* Wazuh icon - top right branch */}
@@ -518,7 +539,7 @@ export function DataTransformationAnimation() {
                   clipPath="url(#iconCircle2)"
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.9 }}
+                  transition={{ duration: 0.8, delay: isMobile ? 0.65 : 0.9 }}
                 />
 
                 {/* AWS icon - right middle branch */}
@@ -531,7 +552,7 @@ export function DataTransformationAnimation() {
                   clipPath="url(#iconCircle5)"
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.85 }}
+                  transition={{ duration: 0.8, delay: isMobile ? 0.62 : 0.85 }}
                 />
 
                 {/* Kafka icon - left middle branch */}
@@ -544,7 +565,7 @@ export function DataTransformationAnimation() {
                   clipPath="url(#iconCircle6)"
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.95 }}
+                  transition={{ duration: 0.8, delay: isMobile ? 0.7 : 0.95 }}
                 />
 
                 {/* Ollama icon - bottom left branch */}
@@ -557,7 +578,7 @@ export function DataTransformationAnimation() {
                   clipPath="url(#iconCircle3)"
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 1.0 }}
+                  transition={{ duration: 0.8, delay: isMobile ? 0.68 : 1.0 }}
                 />
 
                 {/* Python icon - bottom right branch */}
@@ -570,7 +591,7 @@ export function DataTransformationAnimation() {
                   clipPath="url(#iconCircle4)"
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 1.1 }}
+                  transition={{ duration: 0.8, delay: isMobile ? 0.75 : 1.1 }}
                 />
               </g>
             </>
